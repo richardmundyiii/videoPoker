@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Orbitron", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#payouts {
+  background-color: rgb(0, 12, 86);
+  color: rgb(218, 216, 90);
+  height: 40vmin;
+  width: 100vmin;
+  border: 1px solid gold;
+  align-items: center;
+  justify-content: center;
+}
+
+#payouts table,
+th,
+tr {
+  border: 1px solid rgb(218, 216, 90);
+  width: 100vmin;
+}
