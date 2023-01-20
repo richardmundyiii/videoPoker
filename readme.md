@@ -30,7 +30,7 @@
    - The amount won will be displayed at the bottom left of the screen, just above help.
    - The players total credits will increase by the amount won.
 
-### Winning Hands
+### Winning Hand Odds
 
 | Hand                    | Odds    |
 | ----------------------- | ------- |
@@ -47,6 +47,8 @@
 | 3 of a Kind             | 3 : 1   |
 | 2 pairs                 | 1 : 1   |
 | Jacks or Better         | 1 : 1   |
+
+### Payouts Per Credit
 
 | Hand                    | 1   | 2   | 3    | 4    | 5    |
 | ----------------------- | --- | --- | ---- | ---- | ---- |
