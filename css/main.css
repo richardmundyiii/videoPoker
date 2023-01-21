@@ -144,9 +144,6 @@ body {
   -webkit-text-stroke: 0.05vmin gold;
 }
 
-#creditMessage p {
-}
-
 .cards-row {
   display: flex;
   flex-direction: row;
