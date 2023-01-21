@@ -1,19 +1,57 @@
 /*----- constants -----*/
-const SUITS = ["s", "c", "d", "h"];
-const RANKS = [
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "J",
-  "Q",
-  "K",
-  "A",
+const ORIGINAL_DECK = [
+  "2s",
+  "3s",
+  "4s",
+  "5s",
+  "6s",
+  "7s",
+  "8s",
+  "9s",
+  "10s",
+  "Js",
+  "Qs",
+  "Ks",
+  "As",
+  "2d",
+  "3d",
+  "4d",
+  "5d",
+  "6d",
+  "7d",
+  "8d",
+  "9d",
+  "10d",
+  "Jd",
+  "Qd",
+  "Kd",
+  "Ad",
+  "2c",
+  "3c",
+  "4c",
+  "5c",
+  "6c",
+  "7c",
+  "8c",
+  "9c",
+  "10c",
+  "Jc",
+  "Qc",
+  "Kc",
+  "Ac",
+  "2h",
+  "3h",
+  "4h",
+  "5h",
+  "6h",
+  "7h",
+  "8h",
+  "9h",
+  "10h",
+  "Jh",
+  "Qh",
+  "Kh",
+  "Ah",
 ];
 
 /*----- state variables -----*/
@@ -50,7 +88,7 @@ function init() {
 
 function handleDeal(evt) {
   if (evt.target.tagName !== "BUTTON") return;
-  console.log("Clicked Deal");
+  deckShuffle();
 }
 
 function handleOneBet(evt) {
@@ -80,21 +118,22 @@ function render() {
   renderBetSize();
 }
 
-// Building Poker Deck
-const originalDeck = buildOriginalDeck();
+// SHUFFLING DECK
 
-function buildOriginalDeck() {
-  const deck = [];
-  SUITS.forEach(function (SUIT) {
-    RANKS.forEach(function (RANK) {
-      deck.push({
-        face: `${SUIT}${RANK}`,
-      });
-    });
-  });
-  return deck;
+function deckShuffle() {
+  let tempDeck = [...ORIGINAL_DECK];
+  for (let x = 0; x < 1000; x++) {
+    for (let i = tempDeck.length; i--; ) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = tempDeck[i];
+      tempDeck[i] = tempDeck[j];
+      tempDeck[j] = temp;
+    }
+  }
+  console.log(tempDeck);
+  return tempDeck;
 }
 
-function shuffleDeck() {
-  let tempDeck = [...originalDeck];
-}
+// function randomInt(min, max) {
+//   return Math.floor(Math.random)
+// }
