@@ -1,19 +1,38 @@
 /*----- constants -----*/
-const suits = ['s', 'c', 'd', 'h'];
-const ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
+const suits = ["s", "c", "d", "h"];
+const ranks = [
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "J",
+  "Q",
+  "K",
+  "A",
+];
 
 // Build an 'original' deck of 'card' objects used to create shuffled decks
 const originalDeck = buildOriginalDeck();
-renderDeckInContainer(originalDeck, document.getElementById('original-deck-container'));
+renderDeckInContainer(
+  originalDeck,
+  document.getElementById("original-deck-container")
+);
 
 /*----- app's state (variables) -----*/
 let shuffledDeck;
 
 /*----- cached element references -----*/
-const shuffledContainer = document.getElementById('shuffled-deck-container');
+const shuffledContainer = document.getElementById("shuffled-deck-container");
 
 /*----- event listeners -----*/
-document.querySelector('button').addEventListener('click', renderNewShuffledDeck);
+document
+  .querySelector("button")
+  .addEventListener("click", renderNewShuffledDeck);
 
 /*----- functions -----*/
 function getNewShuffledDeck() {
@@ -36,33 +55,17 @@ function renderNewShuffledDeck() {
 }
 
 function renderDeckInContainer(deck, container) {
-  container.innerHTML = '';
+  container.innerHTML = "";
   // Let's build the cards as a string of HTML
-  let cardsHtml = '';
-  deck.forEach(function(card) {
+  let cardsHtml = "";
+  deck.forEach(function (card) {
     cardsHtml += `<div class="card ${card.face}"></div>`;
   });
-  // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
+  // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup
   // const cardsHtml = deck.reduce(function(html, card) {
   //   return html + `<div class="card ${card.face}"></div>`;
   // }, '');
   container.innerHTML = cardsHtml;
-}
-
-function buildOriginalDeck() {
-  const deck = [];
-  // Use nested forEach to generate card objects
-  suits.forEach(function(suit) {
-    ranks.forEach(function(rank) {
-      deck.push({
-        // The 'face' property maps to the library's CSS classes for cards
-        face: `${suit}${rank}`,
-        // Setting the 'value' property for game of blackjack, not war
-        value: Number(rank) || (rank === 'A' ? 11 : 10)
-      });
-    });
-  });
-  return deck;
 }
 
 renderNewShuffledDeck();
