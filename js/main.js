@@ -54,6 +54,166 @@ const ORIGINAL_DECK = [
   "Ah",
 ];
 
+const secondDeck = {
+  "2s": {
+    img: "css/card-library/images/spades/spades-r02.svg",
+  },
+  "3s": {
+    img: "css/card-library/images/spades/spades-r03.svg",
+  },
+  "4s": {
+    img: "css/card-library/images/spades/spades-r04",
+  },
+  "5s": {
+    img: "css/card-library/images/spades/spades-r05",
+  },
+  "6s": {
+    img: "css/card-library/images/spades/spades-r06",
+  },
+  "7s": {
+    img: "css/card-library/images/spades/spades-r07",
+  },
+  "8s": {
+    img: "css/card-library/images/spades/spades-r08",
+  },
+  "9s": {
+    img: "css/card-library/images/spades/spades-r09",
+  },
+  "10s": {
+    img: "css/card-library/images/spades/spades-r10",
+  },
+  Js: {
+    img: "css/card-library/images/spades/spades-J",
+  },
+  Qs: {
+    img: "css/card-library/images/spades/spades-Q",
+  },
+  Ks: {
+    img: "css/card-library/images/spades/spades-K",
+  },
+  As: {
+    img: "css/card-library/images/spades/spades-A",
+  },
+  "2d": {
+    img: "css/card-library/images/diamonds/diamonds-r02",
+  },
+  "3d": {
+    img: "css/card-library/images/diamonds/diamonds-r03",
+  },
+  "4d": {
+    img: "css/card-library/images/diamonds/diamonds-r04",
+  },
+  "5d": {
+    img: "css/card-library/images/diamonds/diamonds-r05",
+  },
+  "6d": {
+    img: "css/card-library/images/diamonds/diamonds-r06",
+  },
+  "7d": {
+    img: "css/card-library/images/diamonds/diamonds-r07",
+  },
+  "8d": {
+    img: "css/card-library/images/diamonds/diamonds-r08",
+  },
+  "9d": {
+    img: "css/card-library/images/diamonds/diamonds-r09",
+  },
+  "10d": {
+    img: "css/card-library/images/diamonds/diamonds-r10",
+  },
+  Jd: {
+    img: "css/card-library/images/diamonds/diamonds-J",
+  },
+  Qd: {
+    img: "css/card-library/images/diamonds/diamonds-Q",
+  },
+  Kd: {
+    img: "css/card-library/images/diamonds/diamonds-K",
+  },
+  Ad: {
+    img: "css/card-library/images/diamonds/diamonds-A",
+  },
+  "2c": {
+    img: "css/card-library/images/clubs/clubs-r02",
+  },
+  "3c": {
+    img: "css/card-library/images/clubs/clubs-r03",
+  },
+  "4c": {
+    img: "css/card-library/images/clubs/clubs-r04",
+  },
+  "5c": {
+    img: "css/card-library/images/clubs/clubs-r05",
+  },
+  "6c": {
+    img: "css/card-library/images/clubs/clubs-r06",
+  },
+  "7c": {
+    img: "css/card-library/images/clubs/clubs-r07",
+  },
+  "8c": {
+    img: "css/card-library/images/clubs/clubs-r08",
+  },
+  "9c": {
+    img: "css/card-library/images/clubs/clubs-r09",
+  },
+  "10c": {
+    img: "css/card-library/images/clubs/clubs-r10",
+  },
+  Jc: {
+    img: "css/card-library/images/clubs/clubs-J",
+  },
+  Qc: {
+    img: "css/card-library/images/clubs/clubs-Q",
+  },
+  Kc: {
+    img: "css/card-library/images/clubs/clubs-K",
+  },
+  Ac: {
+    img: "css/card-library/images/clubs/clubs-A",
+  },
+  "2h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "3h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "4h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "5h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "6h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "7h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "8h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "9h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  "10h": {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  Jh: {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  Qh: {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  Kh: {
+    img: "css/card-library/images/hearts/hearts-",
+  },
+  Ah: {
+    img: "css/card-library/images/hearts/hearts-A.svg",
+  },
+};
+
+console.log(secondDeck.ah);
 /*----- state variables -----*/
 let board;
 let playerCredit;
@@ -69,9 +229,7 @@ dealBtnEl = document.getElementById("dealBtn");
 maxBetEl = document.getElementById("betBtnMax");
 oneBetEl = document.getElementById("betBtn");
 betMessageEl = document.getElementById("betMessage");
-playerCardEls = document.getElementsByClassName("card-container > img");
-console.log(Array.isArray(playerCardEls));
-console.log(playerCardEls);
+playerCardEls = document.querySelectorAll(".card-container > img");
 // holdEls = document.getElementsByClassName("hold-row");
 // Array.from(holdEls).forEach((el) => {
 //   console.log(el);
@@ -116,9 +274,12 @@ function handleMaxBet(evt) {
 }
 
 function renderPlayerHand() {
-  playerCardEls.map((el) => {
+  tempDeck;
+  playerCardEls.forEach((el) => {
+    el.src = secondDeck[tempDeck[el]];
     console.log(el);
   });
+  render();
 }
 
 function renderBetSize() {
