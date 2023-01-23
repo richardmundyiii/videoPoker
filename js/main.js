@@ -135,7 +135,7 @@ function render() {
 
 function deckShuffle() {
   tempDeck = [...ORIGINAL_DECK];
-  for (let x = 0; x < 1000; x++) {
+  for (let k = 0; k < 1000; k++) {
     for (let i = tempDeck.length; i--; ) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = tempDeck[i];

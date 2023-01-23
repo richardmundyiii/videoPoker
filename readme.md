@@ -75,3 +75,26 @@ for (let i = 0; i < originalDeck.length; i++) {
   originalDeck.push(deck.splice(Math.floor(Math.random() * deck.length), 1)[0]);
 }
 ```
+
+The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence. The algorithm effectively puts all the elements into a hat; it continually determines the next element by randomly drawing an element from the hat until no elements remain. The algorithm produces an unbiased permutation: every permutation is equally likely. The modern version of the algorithm is efficient: it takes time proportional to the number of items being shuffled and shuffles them in place.
+
+I start off by copying the original deck and adding it to my shuffle function. We will then iterate over the deck array and create two variables which will hold two temporary card values. As the function iterates over the array it will swap the values of the first and second random indexes. This will create a "shuffled" deck however there is no gurantee that the same index number was not called mutliple times in a row which would esentially equate to a portion of the deck not getting shuffled. So I wrapped that into another for loop to run 1000 times, in turn, reducing the odds of a portion of the deck from noet being shuffled.
+
+```javascript
+function deckShuffle() {
+  tempDeck = [...ORIGINAL_DECK];
+  for (let k = 0; k < 1000; k++) {
+    for (let i = tempDeck.length; i--; ) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = tempDeck[i];
+      tempDeck[i] = tempDeck[j];
+      tempDeck[j] = temp;
+    }
+  }
+  return tempDeck;
+}
+```
+
+#### Refernces
+
+Wikipedia: [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
