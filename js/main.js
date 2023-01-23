@@ -213,9 +213,7 @@ const secondDeck = {
   },
 };
 
-console.log(secondDeck.ah);
 /*----- state variables -----*/
-let board;
 let playerCredit;
 let speed;
 let betSize;
@@ -234,6 +232,7 @@ playerCardEls = document.querySelectorAll(".card-container > img");
 // Array.from(holdEls).forEach((el) => {
 //   console.log(el);
 // });
+
 /*----- event listeners -----*/
 dealBtnEl.addEventListener("click", handleDeal);
 maxBetEl.addEventListener("click", handleMaxBet);
@@ -252,7 +251,13 @@ function handleDeal(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   deckShuffle();
   console.log(tempDeck);
-  board = [tempDeck[0], tempDeck[1], tempDeck[2], tempDeck[3], tempDeck[4]];
+  playerHand = [
+    tempDeck[0],
+    tempDeck[1],
+    tempDeck[2],
+    tempDeck[3],
+    tempDeck[4],
+  ];
   console.log(board);
 }
 
@@ -274,10 +279,9 @@ function handleMaxBet(evt) {
 }
 
 function renderPlayerHand() {
-  tempDeck;
   playerCardEls.forEach((el) => {
-    el.src = secondDeck[tempDeck[el]];
     console.log(el);
+    // el.src = secondDeck[el];
   });
   render();
 }
@@ -285,8 +289,6 @@ function renderPlayerHand() {
 function renderBetSize() {
   betMessageEl.innerText = `Bet ${betSize}`;
 }
-
-function renderBoard() {}
 
 function render() {
   renderBetSize();
@@ -306,6 +308,15 @@ function deckShuffle() {
   }
   return tempDeck;
 }
+
+// function shuffleObjectDeck() {
+//   tempDeck = { ...secondDeck };
+//   for (const card in tempDeck) {
+//     for (let i = 0; i < tempDeck.length; i++) {
+//       console.log(card[i]);
+//     }
+//   }
+// }
 
 // function randomInt(min, max) {
 //   return Math.floor(Math.random)
