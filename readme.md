@@ -65,3 +65,13 @@
 | 3 of a Kind             | 3   | 6   | 9    | 12   | 15   |
 | 2 pairs                 | 1   | 2   | 3    | 4    | 5    |
 | Jacks or Better         | 1   | 2   | 3    | 4    | 5    |
+
+### About the Shuffle
+
+There are a lot of different ways to shuffle, or not shuffle, a deck of cards to generate a random order. The simplest way to "shuffle" a deck would be to not shuffle at all. Meaning just randomly pick a card from the deck and place it in its new array. Pros for this would be very minimal coding and easy to read, even for beginner javascript learners, and in fact does randomly select a card from the deck.
+
+```javascript
+for (let i = 0; i < originalDeck.length; i++) {
+  originalDeck.push(deck.splice(Math.floor(Math.random() * deck.length), 1)[0]);
+}
+```
