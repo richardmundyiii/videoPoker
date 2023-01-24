@@ -285,7 +285,6 @@ function handleOneBet(evt) {
     playerCredit = playerCredit - 1;
     renderBetSize();
     renderCreditMessage();
-    dealBtnEl.click(handleDeal);
   } else return;
   if (betSize !== 0) {
     dealBtnEl.removeAttribute("disabled");
