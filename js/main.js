@@ -285,6 +285,7 @@ function handleOneBet(evt) {
     playerCredit = playerCredit - 1;
     renderBetSize();
     renderCreditMessage();
+    dealBtnEl.click(handleDeal);
   } else return;
   if (betSize !== 0) {
     dealBtnEl.removeAttribute("disabled");
@@ -302,8 +303,6 @@ function handleMaxBet(evt) {
     dealBtnEl.removeAttribute("disabled", "");
     renderCreditMessage();
     renderBetSize();
-    handleDeal();
-    renderHighlightColumn();
   }
 
   render();
@@ -314,8 +313,6 @@ function playerCardHolds() {
 }
 
 //ALL RENDER FUNCTIONS
-
-function renderBetColumn() {}
 
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
