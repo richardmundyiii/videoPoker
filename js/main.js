@@ -52,6 +52,7 @@ const ORIGINAL_DECK = [
   "Qh",
   "Kh",
   "Ah",
+  "null",
 ];
 
 const secondDeck = {
@@ -211,6 +212,9 @@ const secondDeck = {
   Ah: {
     img: "css/card-library/images/hearts/hearts-A.svg",
   },
+  null: {
+    img: "css/card-library/images/backs/red.svg",
+  },
 };
 
 /*----- state variables -----*/
@@ -233,12 +237,12 @@ playerCardEls = [...document.querySelectorAll(".cards-row > img")];
 playerWinMessageEl = document.getElementById("payMessage");
 holdEls = document.querySelectorAll("#hold-row > p");
 creditMessageEl = document.getElementById("creditMessage");
+payoutC5 = document.getElementById("c-5");
 
 /*----- event listeners -----*/
 dealBtnEl.addEventListener("click", handleDeal);
 maxBetEl.addEventListener("click", handleMaxBet);
 oneBetEl.addEventListener("click", handleOneBet);
-playerCardEls.addEventListener("click", handleHoldCards);
 
 /*----- functions -----*/
 init();
@@ -250,6 +254,8 @@ function init() {
   winEl = 0;
   dealBtnEl.setAttribute("disabled", "");
   renderCreditMessage();
+  renderBetSize();
+  renderPayMessage();
 
   render();
 }
@@ -276,6 +282,9 @@ function handleOneBet(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   if (betSize < 5) {
     betSize++;
+    playerCredit = playerCredit - 1;
+    renderBetSize();
+    renderCreditMessage();
   } else return;
   if (betSize !== 0) {
     dealBtnEl.removeAttribute("disabled");
@@ -292,10 +301,16 @@ function handleMaxBet(evt) {
     playerCredit = playerCredit - 5;
     dealBtnEl.removeAttribute("disabled", "");
     renderCreditMessage();
+    renderBetSize();
     handleDeal();
+    renderHighlightColumn();
   }
 
   render();
+}
+
+function playerCardHolds() {
+  console.log("Player Card Held");
 }
 
 //ALL RENDER FUNCTIONS
@@ -326,6 +341,10 @@ function renderCreditMessage() {
   creditMessageEl.innerText = `${playerCredit} CREDITS`;
 }
 
+function renderHighlightColumn() {
+  payoutC5.style.border = "1px solid gold";
+}
+
 function render() {
   renderBetSize();
   renderPayMessage();
@@ -347,3 +366,5 @@ function deckShuffle() {
   }
   return tempDeck;
 }
+
+render();

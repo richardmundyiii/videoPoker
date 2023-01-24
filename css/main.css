@@ -124,3 +124,11 @@ body {
 .card-container {
   background-color: rgb(205, 203, 203);
 }
+
+#c-1,
+#c-2,
+#c-3,
+#c-4,
+#c-5 {
+  text-align: center;
+}
