@@ -29,30 +29,6 @@ body {
 #card-back {
   background-color: rgb(234, 230, 230);
 }
-/* .c-1 {
-  grid-column-start: 2;
-  text-align: center;
-}
-
-.c-2 {
-  grid-column-start: 3;
-  text-align: center;
-}
-
-.c-3 {
-  grid-column-start: 4;
-  text-align: center;
-}
-
-.c-4 {
-  grid-column-start: 5;
-  text-align: center;
-}
-
-.c-5 {
-  grid-column-start: 6;
-  text-align: center;
-} */
 
 .game {
   display: grid;
