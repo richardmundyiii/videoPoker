@@ -222,6 +222,7 @@ let shuffle;
 let deck;
 let tempDeck;
 let winEl;
+let round;
 
 /*----- cached elements  -----*/
 dealBtnEl = document.getElementById("dealBtn");
@@ -231,11 +232,7 @@ betMessageEl = document.getElementById("betMessage");
 playerCardEls = [...document.querySelectorAll(".cards-row > img")];
 playerWinMessageEl = document.getElementById("payMessage");
 holdEls = document.querySelectorAll("#hold-row > p");
-console.log(playerCardEls);
-// holdEls = document.getElementsByClassName("hold-row");
-// Array.from(holdEls).forEach((el) => {
-//   console.log(el);
-// });
+creditMessageEl = document.getElementById("creditMessage");
 
 /*----- event listeners -----*/
 dealBtnEl.addEventListener("click", handleDeal);
@@ -248,8 +245,10 @@ init();
 function init() {
   playerHand = [null, null, null, null, null];
   betSize = 0;
-  playerCredit = 40;
+  playerCredit = 400;
   winEl = 0;
+  dealBtnEl.setAttribute("disabled", "");
+  renderCreditMessage();
 
   render();
 }
@@ -264,6 +263,7 @@ function handleDeal(evt) {
     tempDeck[3],
     tempDeck[4],
   ];
+
   render();
 }
 
@@ -272,17 +272,27 @@ function handleOneBet(evt) {
   if (betSize < 5) {
     betSize++;
   } else return;
+  if (betSize !== 0) {
+    dealBtnEl.removeAttribute("disabled");
+  }
 
   render();
 }
 
 function handleMaxBet(evt) {
   if (evt.target.tagName !== "BUTTON") return;
-  betSize = 5;
-  console.log("Clicked Max Bet");
+  if (betSize < 5) {
+    betSize = 5;
+    playerCredit = playerCredit - 5;
+    dealBtnEl.removeAttribute("disabled", "");
+    renderCreditMessage();
+    handleDeal();
+  }
 
   render();
 }
+
+function renderBetColumn() {}
 
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
@@ -298,10 +308,15 @@ function render() {
   renderBetSize();
   renderPayMessage();
   renderPlayerHand();
+  renderCreditMessage();
 }
 
 function renderPayMessage() {
   playerWinMessageEl.innerText = `Win ${winEl}`;
+}
+
+function renderCreditMessage() {
+  creditMessageEl.innerText = `${playerCredit} CREDITS`;
 }
 
 // SHUFFLING DECK
@@ -318,16 +333,3 @@ function deckShuffle() {
   }
   return tempDeck;
 }
-
-// function shuffleObjectDeck() {
-//   tempDeck = { ...secondDeck };
-//   for (const card in tempDeck) {
-//     for (let i = 0; i < tempDeck.length; i++) {
-//       console.log(card[i]);
-//     }
-//   }
-// }
-
-// function randomInt(min, max) {
-//   return Math.floor(Math.random)
-// }
