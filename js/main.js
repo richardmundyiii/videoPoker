@@ -238,6 +238,7 @@ creditMessageEl = document.getElementById("creditMessage");
 dealBtnEl.addEventListener("click", handleDeal);
 maxBetEl.addEventListener("click", handleMaxBet);
 oneBetEl.addEventListener("click", handleOneBet);
+playerCardEls.addEventListener("click", handleHoldCards);
 
 /*----- functions -----*/
 init();
@@ -253,6 +254,9 @@ function init() {
   render();
 }
 
+//ALL HANDLE FUNCTIONS
+
+//When DEAL Button is pressed
 function handleDeal(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   deckShuffle();
@@ -267,6 +271,7 @@ function handleDeal(evt) {
   render();
 }
 
+//When Bet One Button is pressed
 function handleOneBet(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   if (betSize < 5) {
@@ -279,6 +284,7 @@ function handleOneBet(evt) {
   render();
 }
 
+//When Max Bet button is pressed
 function handleMaxBet(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   if (betSize < 5) {
@@ -292,6 +298,8 @@ function handleMaxBet(evt) {
   render();
 }
 
+//ALL RENDER FUNCTIONS
+
 function renderBetColumn() {}
 
 function renderPlayerHand() {
@@ -300,8 +308,22 @@ function renderPlayerHand() {
   });
 }
 
+//Render the current bet size
 function renderBetSize() {
   betMessageEl.innerText = `Bet ${betSize}`;
+}
+
+//Render Win amount of previous hand
+function renderPayMessage() {
+  if (winEl === 0) {
+    playerWinMessageEl.innerText = "";
+  } else {
+    playerWinMessageEl.innerText = `Win ${winEl}`;
+  }
+}
+
+function renderCreditMessage() {
+  creditMessageEl.innerText = `${playerCredit} CREDITS`;
 }
 
 function render() {
@@ -309,14 +331,6 @@ function render() {
   renderPayMessage();
   renderPlayerHand();
   renderCreditMessage();
-}
-
-function renderPayMessage() {
-  playerWinMessageEl.innerText = `Win ${winEl}`;
-}
-
-function renderCreditMessage() {
-  creditMessageEl.innerText = `${playerCredit} CREDITS`;
 }
 
 // SHUFFLING DECK
