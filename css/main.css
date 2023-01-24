@@ -5,7 +5,6 @@
 body {
   height: 100vmin;
   font-family: sans-serif;
-  background-size: ;
 }
 
 .container {
@@ -27,7 +26,10 @@ body {
   font-size: 1.7vmin;
 }
 
-.c-1 {
+#card-back {
+  background-color: rgb(234, 230, 230);
+}
+/* .c-1 {
   grid-column-start: 2;
   text-align: center;
 }
@@ -50,7 +52,7 @@ body {
 .c-5 {
   grid-column-start: 6;
   text-align: center;
-}
+} */
 
 .game {
   display: grid;

@@ -62,151 +62,151 @@ const secondDeck = {
     img: "css/card-library/images/spades/spades-r03.svg",
   },
   "4s": {
-    img: "css/card-library/images/spades/spades-r04",
+    img: "css/card-library/images/spades/spades-r04.svg",
   },
   "5s": {
-    img: "css/card-library/images/spades/spades-r05",
+    img: "css/card-library/images/spades/spades-r05.svg",
   },
   "6s": {
-    img: "css/card-library/images/spades/spades-r06",
+    img: "css/card-library/images/spades/spades-r06.svg",
   },
   "7s": {
-    img: "css/card-library/images/spades/spades-r07",
+    img: "css/card-library/images/spades/spades-r07.svg",
   },
   "8s": {
-    img: "css/card-library/images/spades/spades-r08",
+    img: "css/card-library/images/spades/spades-r08.svg",
   },
   "9s": {
-    img: "css/card-library/images/spades/spades-r09",
+    img: "css/card-library/images/spades/spades-r09.svg",
   },
   "10s": {
-    img: "css/card-library/images/spades/spades-r10",
+    img: "css/card-library/images/spades/spades-r10.svg",
   },
   Js: {
-    img: "css/card-library/images/spades/spades-J",
+    img: "css/card-library/images/spades/spades-J.svg",
   },
   Qs: {
-    img: "css/card-library/images/spades/spades-Q",
+    img: "css/card-library/images/spades/spades-Q.svg",
   },
   Ks: {
-    img: "css/card-library/images/spades/spades-K",
+    img: "css/card-library/images/spades/spades-K.svg",
   },
   As: {
-    img: "css/card-library/images/spades/spades-A",
+    img: "css/card-library/images/spades/spades-A.svg",
   },
   "2d": {
-    img: "css/card-library/images/diamonds/diamonds-r02",
+    img: "css/card-library/images/diamonds/diamonds-r02.svg",
   },
   "3d": {
-    img: "css/card-library/images/diamonds/diamonds-r03",
+    img: "css/card-library/images/diamonds/diamonds-r03.svg",
   },
   "4d": {
-    img: "css/card-library/images/diamonds/diamonds-r04",
+    img: "css/card-library/images/diamonds/diamonds-r04.svg",
   },
   "5d": {
-    img: "css/card-library/images/diamonds/diamonds-r05",
+    img: "css/card-library/images/diamonds/diamonds-r05.svg",
   },
   "6d": {
-    img: "css/card-library/images/diamonds/diamonds-r06",
+    img: "css/card-library/images/diamonds/diamonds-r06.svg",
   },
   "7d": {
-    img: "css/card-library/images/diamonds/diamonds-r07",
+    img: "css/card-library/images/diamonds/diamonds-r07.svg",
   },
   "8d": {
-    img: "css/card-library/images/diamonds/diamonds-r08",
+    img: "css/card-library/images/diamonds/diamonds-r08.svg",
   },
   "9d": {
-    img: "css/card-library/images/diamonds/diamonds-r09",
+    img: "css/card-library/images/diamonds/diamonds-r09.svg",
   },
   "10d": {
-    img: "css/card-library/images/diamonds/diamonds-r10",
+    img: "css/card-library/images/diamonds/diamonds-r10.svg",
   },
   Jd: {
-    img: "css/card-library/images/diamonds/diamonds-J",
+    img: "css/card-library/images/diamonds/diamonds-J.svg",
   },
   Qd: {
-    img: "css/card-library/images/diamonds/diamonds-Q",
+    img: "css/card-library/images/diamonds/diamonds-Q.svg",
   },
   Kd: {
-    img: "css/card-library/images/diamonds/diamonds-K",
+    img: "css/card-library/images/diamonds/diamonds-K.svg",
   },
   Ad: {
-    img: "css/card-library/images/diamonds/diamonds-A",
+    img: "css/card-library/images/diamonds/diamonds-A.svg",
   },
   "2c": {
-    img: "css/card-library/images/clubs/clubs-r02",
+    img: "css/card-library/images/clubs/clubs-r02.svg",
   },
   "3c": {
-    img: "css/card-library/images/clubs/clubs-r03",
+    img: "css/card-library/images/clubs/clubs-r03.svg",
   },
   "4c": {
-    img: "css/card-library/images/clubs/clubs-r04",
+    img: "css/card-library/images/clubs/clubs-r04.svg",
   },
   "5c": {
-    img: "css/card-library/images/clubs/clubs-r05",
+    img: "css/card-library/images/clubs/clubs-r05.svg",
   },
   "6c": {
-    img: "css/card-library/images/clubs/clubs-r06",
+    img: "css/card-library/images/clubs/clubs-r06.svg",
   },
   "7c": {
-    img: "css/card-library/images/clubs/clubs-r07",
+    img: "css/card-library/images/clubs/clubs-r07.svg",
   },
   "8c": {
-    img: "css/card-library/images/clubs/clubs-r08",
+    img: "css/card-library/images/clubs/clubs-r08.svg",
   },
   "9c": {
-    img: "css/card-library/images/clubs/clubs-r09",
+    img: "css/card-library/images/clubs/clubs-r09.svg",
   },
   "10c": {
-    img: "css/card-library/images/clubs/clubs-r10",
+    img: "css/card-library/images/clubs/clubs-r10.svg",
   },
   Jc: {
-    img: "css/card-library/images/clubs/clubs-J",
+    img: "css/card-library/images/clubs/clubs-J.svg",
   },
   Qc: {
-    img: "css/card-library/images/clubs/clubs-Q",
+    img: "css/card-library/images/clubs/clubs-Q.svg",
   },
   Kc: {
-    img: "css/card-library/images/clubs/clubs-K",
+    img: "css/card-library/images/clubs/clubs-K.svg",
   },
   Ac: {
-    img: "css/card-library/images/clubs/clubs-A",
+    img: "css/card-library/images/clubs/clubs-A.svg",
   },
   "2h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r02.svg",
   },
   "3h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r03.svg",
   },
   "4h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r04.svg",
   },
   "5h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r05.svg",
   },
   "6h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r06.svg",
   },
   "7h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r07.svg",
   },
   "8h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r08.svg",
   },
   "9h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r09.svg",
   },
   "10h": {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-r10.svg",
   },
   Jh: {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-J.svg",
   },
   Qh: {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-Q.svg",
   },
   Kh: {
-    img: "css/card-library/images/hearts/hearts-",
+    img: "css/card-library/images/hearts/hearts-K.svg",
   },
   Ah: {
     img: "css/card-library/images/hearts/hearts-A.svg",
@@ -221,13 +221,17 @@ let playerHand;
 let shuffle;
 let deck;
 let tempDeck;
+let winEl;
 
 /*----- cached elements  -----*/
 dealBtnEl = document.getElementById("dealBtn");
 maxBetEl = document.getElementById("betBtnMax");
 oneBetEl = document.getElementById("betBtn");
 betMessageEl = document.getElementById("betMessage");
-playerCardEls = document.querySelectorAll(".card-container > img");
+playerCardEls = [...document.querySelectorAll(".cards-row > img")];
+playerWinMessageEl = document.getElementById("payMessage");
+holdEls = document.querySelectorAll("#hold-row > p");
+console.log(playerCardEls);
 // holdEls = document.getElementsByClassName("hold-row");
 // Array.from(holdEls).forEach((el) => {
 //   console.log(el);
@@ -242,15 +246,17 @@ oneBetEl.addEventListener("click", handleOneBet);
 init();
 
 function init() {
-  board = [null, null, null, null, null];
+  playerHand = [null, null, null, null, null];
   betSize = 0;
+  playerCredit = 40;
+  winEl = 0;
+
   render();
 }
 
 function handleDeal(evt) {
   if (evt.target.tagName !== "BUTTON") return;
   deckShuffle();
-  console.log(tempDeck);
   playerHand = [
     tempDeck[0],
     tempDeck[1],
@@ -258,7 +264,7 @@ function handleDeal(evt) {
     tempDeck[3],
     tempDeck[4],
   ];
-  console.log(board);
+  render();
 }
 
 function handleOneBet(evt) {
@@ -266,8 +272,8 @@ function handleOneBet(evt) {
   if (betSize < 5) {
     betSize++;
   } else return;
+
   render();
-  console.log(betSize);
 }
 
 function handleMaxBet(evt) {
@@ -279,11 +285,9 @@ function handleMaxBet(evt) {
 }
 
 function renderPlayerHand() {
-  playerCardEls.forEach((el) => {
-    console.log(el);
-    // el.src = secondDeck[el];
+  playerCardEls.forEach((card, idx) => {
+    card.src = secondDeck[playerHand[idx]].img;
   });
-  render();
 }
 
 function renderBetSize() {
@@ -292,6 +296,12 @@ function renderBetSize() {
 
 function render() {
   renderBetSize();
+  renderPayMessage();
+  renderPlayerHand();
+}
+
+function renderPayMessage() {
+  playerWinMessageEl.innerText = `Win ${winEl}`;
 }
 
 // SHUFFLING DECK
