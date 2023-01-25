@@ -217,6 +217,43 @@ const secondDeck = {
   },
 };
 
+// const WINNING_COMBOS = [
+//   {
+//     royal_flush: [
+//       ["As", "Ks", "Qs", "Js", "10s"],
+//       ["Ad", "Kd", "Qd", "Jd", "10d"],
+//       ["Ac", "Kc", "Qc", "Jc", "10c"],
+//       ["Ah", "Kh", "Qh", "Jh", "10h"],
+//     ],
+//   },
+//   {
+//     straight_flush: [
+//       ["2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "Js", "Qs", "Ks"],
+//       ["2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "Jd", "Qd", "Kd"],
+//       ["2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "10c", "Jc", "Qc", "Kc"],
+//       ["2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "Jh", "Qh", "Kh"],
+//     ],
+//   },
+//   {
+//     fourAcesWithKicker: [
+//       ["As", "Ad", "Ac", "Ah", "2"][("As", "Ad", "Ac", "Ah", "3")][
+//         ("As", "Ad", "Ac", "Ah", "4")
+//       ],
+//     ],
+//   },
+//   {
+//     fourSpecialWithKicker: [
+//       ["2s", "2d", "2c", "2h", "A"][("2s", "2d", "2c", "2h", "3")][
+//         ("2s", "2d", "2c", "2h", "4")
+//       ][("3s", "3d", "3c", "3h", "A")][("3s", "3d", "3c", "3h", "2")][
+//         ("3s", "3d", "3c", "3h", "4")
+//       ][("4s", "4d", "4c", "4h", "A")][("4s", "4d", "4c", "4h", "2")][
+//         ("4s", "4d", "4c", "4h", "3")
+//       ],
+//     ],
+//   },
+// ];
+
 /*----- state variables -----*/
 let playerCredit;
 let speed;
@@ -226,7 +263,7 @@ let shuffle;
 let deck;
 let tempDeck;
 let winEl;
-let round;
+let gameStage;
 
 /*----- cached elements  -----*/
 dealBtnEl = document.getElementById("dealBtn");
@@ -235,9 +272,9 @@ oneBetEl = document.getElementById("betBtn");
 betMessageEl = document.getElementById("betMessage");
 playerCardEls = [...document.querySelectorAll(".cards-row > img")];
 playerWinMessageEl = document.getElementById("payMessage");
-holdEls = document.querySelectorAll("#hold-row > p");
+holdEls = [...document.querySelectorAll(".hold-row > p")];
 creditMessageEl = document.getElementById("creditMessage");
-payoutC5 = document.getElementById("c-5");
+deckCardEls = document.getElementById("card-row");
 
 /*----- event listeners -----*/
 dealBtnEl.addEventListener("click", handleDeal);
@@ -252,10 +289,26 @@ function init() {
   betSize = 0;
   playerCredit = 400;
   winEl = 0;
+  gameStage = "preflop";
   dealBtnEl.setAttribute("disabled", "");
   renderCreditMessage();
   renderBetSize();
   renderPayMessage();
+  renderHoldEls();
+
+  render();
+}
+
+function postFlop() {
+  maxBetEl.setAttribute("disabled", "");
+  oneBetEl.setAttribute("disabled", "");
+
+  deckCardEls.addEventListener("click", (evt) => {
+    cardSelection = evt.target;
+    console.log(cardSelection);
+  });
+
+  reDraw();
 
   render();
 }
@@ -274,8 +327,12 @@ function handleDeal(evt) {
     tempDeck[4],
   ];
 
+  postFlop();
+
   render();
 }
+
+function reDraw() {}
 
 //When Bet One Button is pressed
 function handleOneBet(evt) {
@@ -307,11 +364,16 @@ function handleMaxBet(evt) {
   render();
 }
 
-function playerCardHolds() {
-  console.log("Player Card Held");
-}
-
 //ALL RENDER FUNCTIONS
+
+function renderHoldEls() {
+  holdEls.forEach((element) => {
+    const holdContainerEl = element.style.visibility;
+    element.classList.contains("hidden")
+      ? (holdContainerEl = "visible")
+      : (holdContainerEl = "hidden");
+  });
+}
 
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
@@ -353,7 +415,7 @@ function render() {
 function deckShuffle() {
   tempDeck = [...ORIGINAL_DECK];
   for (let k = 0; k < 1000; k++) {
-    for (let i = tempDeck.length; i--; ) {
+    for (let i = tempDeck.length - 1; i--; ) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = tempDeck[i];
       tempDeck[i] = tempDeck[j];
