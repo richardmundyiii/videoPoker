@@ -57,73 +57,73 @@ const ORIGINAL_DECK = [
 
 const secondDeck = {
   "2s": {
-    img: "css/card-library/images/spades/spades-r02.svg",
+    img: "/css/card-library/images/spades/spades-r02.svg",
   },
   "3s": {
-    img: "css/card-library/images/spades/spades-r03.svg",
+    img: "/css/card-library/images/spades/spades-r03.svg",
   },
   "4s": {
-    img: "css/card-library/images/spades/spades-r04.svg",
+    img: "/css/card-library/images/spades/spades-r04.svg",
   },
   "5s": {
-    img: "css/card-library/images/spades/spades-r05.svg",
+    img: "/css/card-library/images/spades/spades-r05.svg",
   },
   "6s": {
-    img: "css/card-library/images/spades/spades-r06.svg",
+    img: "/css/card-library/images/spades/spades-r06.svg",
   },
   "7s": {
-    img: "css/card-library/images/spades/spades-r07.svg",
+    img: "/css/card-library/images/spades/spades-r07.svg",
   },
   "8s": {
-    img: "css/card-library/images/spades/spades-r08.svg",
+    img: "/css/card-library/images/spades/spades-r08.svg",
   },
   "9s": {
-    img: "css/card-library/images/spades/spades-r09.svg",
+    img: "/css/card-library/images/spades/spades-r09.svg",
   },
   "10s": {
-    img: "css/card-library/images/spades/spades-r10.svg",
+    img: "/css/card-library/images/spades/spades-r10.svg",
   },
   Js: {
-    img: "css/card-library/images/spades/spades-J.svg",
+    img: "/css/card-library/images/spades/spades-J.svg",
   },
   Qs: {
-    img: "css/card-library/images/spades/spades-Q.svg",
+    img: "/css/card-library/images/spades/spades-Q.svg",
   },
   Ks: {
-    img: "css/card-library/images/spades/spades-K.svg",
+    img: "/css/card-library/images/spades/spades-K.svg",
   },
   As: {
-    img: "css/card-library/images/spades/spades-A.svg",
+    img: "/css/card-library/images/spades/spades-A.svg",
   },
   "2d": {
-    img: "css/card-library/images/diamonds/diamonds-r02.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r02.svg",
   },
   "3d": {
-    img: "css/card-library/images/diamonds/diamonds-r03.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r03.svg",
   },
   "4d": {
-    img: "css/card-library/images/diamonds/diamonds-r04.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r04.svg",
   },
   "5d": {
-    img: "css/card-library/images/diamonds/diamonds-r05.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r05.svg",
   },
   "6d": {
-    img: "css/card-library/images/diamonds/diamonds-r06.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r06.svg",
   },
   "7d": {
-    img: "css/card-library/images/diamonds/diamonds-r07.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r07.svg",
   },
   "8d": {
-    img: "css/card-library/images/diamonds/diamonds-r08.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r08.svg",
   },
   "9d": {
-    img: "css/card-library/images/diamonds/diamonds-r09.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r09.svg",
   },
   "10d": {
-    img: "css/card-library/images/diamonds/diamonds-r10.svg",
+    img: "/css/card-library/images/diamonds/diamonds-r10.svg",
   },
   Jd: {
-    img: "css/card-library/images/diamonds/diamonds-J.svg",
+    img: "/css/card-library/images/diamonds/diamonds-J.svg",
   },
   Qd: {
     img: "css/card-library/images/diamonds/diamonds-Q.svg",
