@@ -57,163 +57,163 @@ const ORIGINAL_DECK = [
 
 const secondDeck = {
   "2s": {
-    img: "css/card-library/images/spades/spades-r02.svg",
+    img: "../css/card-library/images/spades/spades-r02.svg",
   },
   "3s": {
-    img: "css/card-library/images/spades/spades-r03.svg",
+    img: "../css/card-library/images/spades/spades-r03.svg",
   },
   "4s": {
-    img: "css/card-library/images/spades/spades-r04.svg",
+    img: "../css/card-library/images/spades/spades-r04.svg",
   },
   "5s": {
-    img: "css/card-library/images/spades/spades-r05.svg",
+    img: "../css/card-library/images/spades/spades-r05.svg",
   },
   "6s": {
-    img: "css/card-library/images/spades/spades-r06.svg",
+    img: "../css/card-library/images/spades/spades-r06.svg",
   },
   "7s": {
-    img: "css/card-library/images/spades/spades-r07.svg",
+    img: "../css/card-library/images/spades/spades-r07.svg",
   },
   "8s": {
-    img: "css/card-library/images/spades/spades-r08.svg",
+    img: "../css/card-library/images/spades/spades-r08.svg",
   },
   "9s": {
-    img: "css/card-library/images/spades/spades-r09.svg",
+    img: "../css/card-library/images/spades/spades-r09.svg",
   },
   "10s": {
-    img: "css/card-library/images/spades/spades-r10.svg",
+    img: "../css/card-library/images/spades/spades-r10.svg",
   },
   Js: {
-    img: "css/card-library/images/spades/spades-J.svg",
+    img: "../css/card-library/images/spades/spades-J.svg",
   },
   Qs: {
-    img: "css/card-library/images/spades/spades-Q.svg",
+    img: "../css/card-library/images/spades/spades-Q.svg",
   },
   Ks: {
-    img: "css/card-library/images/spades/spades-K.svg",
+    img: "../css/card-library/images/spades/spades-K.svg",
   },
   As: {
-    img: "css/card-library/images/spades/spades-A.svg",
+    img: "../css/card-library/images/spades/spades-A.svg",
   },
   "2d": {
-    img: "css/card-library/images/diamonds/diamonds-r02.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r02.svg",
   },
   "3d": {
-    img: "css/card-library/images/diamonds/diamonds-r03.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r03.svg",
   },
   "4d": {
-    img: "css/card-library/images/diamonds/diamonds-r04.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r04.svg",
   },
   "5d": {
-    img: "css/card-library/images/diamonds/diamonds-r05.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r05.svg",
   },
   "6d": {
-    img: "css/card-library/images/diamonds/diamonds-r06.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r06.svg",
   },
   "7d": {
-    img: "css/card-library/images/diamonds/diamonds-r07.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r07.svg",
   },
   "8d": {
-    img: "css/card-library/images/diamonds/diamonds-r08.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r08.svg",
   },
   "9d": {
-    img: "css/card-library/images/diamonds/diamonds-r09.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r09.svg",
   },
   "10d": {
-    img: "css/card-library/images/diamonds/diamonds-r10.svg",
+    img: "../css/card-library/images/diamonds/diamonds-r10.svg",
   },
   Jd: {
-    img: "css/card-library/images/diamonds/diamonds-J.svg",
+    img: "../css/card-library/images/diamonds/diamonds-J.svg",
   },
   Qd: {
-    img: "css/card-library/images/diamonds/diamonds-Q.svg",
+    img: "../css/card-library/images/diamonds/diamonds-Q.svg",
   },
   Kd: {
-    img: "css/card-library/images/diamonds/diamonds-K.svg",
+    img: "../css/card-library/images/diamonds/diamonds-K.svg",
   },
   Ad: {
-    img: "css/card-library/images/diamonds/diamonds-A.svg",
+    img: "../css/card-library/images/diamonds/diamonds-A.svg",
   },
   "2c": {
-    img: "css/card-library/images/clubs/clubs-r02.svg",
+    img: "../css/card-library/images/clubs/clubs-r02.svg",
   },
   "3c": {
-    img: "css/card-library/images/clubs/clubs-r03.svg",
+    img: "../css/card-library/images/clubs/clubs-r03.svg",
   },
   "4c": {
-    img: "css/card-library/images/clubs/clubs-r04.svg",
+    img: "../css/card-library/images/clubs/clubs-r04.svg",
   },
   "5c": {
-    img: "css/card-library/images/clubs/clubs-r05.svg",
+    img: "../css/card-library/images/clubs/clubs-r05.svg",
   },
   "6c": {
-    img: "css/card-library/images/clubs/clubs-r06.svg",
+    img: "../css/card-library/images/clubs/clubs-r06.svg",
   },
   "7c": {
-    img: "css/card-library/images/clubs/clubs-r07.svg",
+    img: "../css/card-library/images/clubs/clubs-r07.svg",
   },
   "8c": {
-    img: "css/card-library/images/clubs/clubs-r08.svg",
+    img: "../css/card-library/images/clubs/clubs-r08.svg",
   },
   "9c": {
-    img: "css/card-library/images/clubs/clubs-r09.svg",
+    img: "../css/card-library/images/clubs/clubs-r09.svg",
   },
   "10c": {
-    img: "css/card-library/images/clubs/clubs-r10.svg",
+    img: "../css/card-library/images/clubs/clubs-r10.svg",
   },
   Jc: {
-    img: "css/card-library/images/clubs/clubs-J.svg",
+    img: "../css/card-library/images/clubs/clubs-J.svg",
   },
   Qc: {
-    img: "css/card-library/images/clubs/clubs-Q.svg",
+    img: "../css/card-library/images/clubs/clubs-Q.svg",
   },
   Kc: {
-    img: "css/card-library/images/clubs/clubs-K.svg",
+    img: "../css/card-library/images/clubs/clubs-K.svg",
   },
   Ac: {
-    img: "css/card-library/images/clubs/clubs-A.svg",
+    img: "../css/card-library/images/clubs/clubs-A.svg",
   },
   "2h": {
-    img: "css/card-library/images/hearts/hearts-r02.svg",
+    img: "../css/card-library/images/hearts/hearts-r02.svg",
   },
   "3h": {
-    img: "css/card-library/images/hearts/hearts-r03.svg",
+    img: "../css/card-library/images/hearts/hearts-r03.svg",
   },
   "4h": {
-    img: "css/card-library/images/hearts/hearts-r04.svg",
+    img: "../css/card-library/images/hearts/hearts-r04.svg",
   },
   "5h": {
-    img: "css/card-library/images/hearts/hearts-r05.svg",
+    img: "../css/card-library/images/hearts/hearts-r05.svg",
   },
   "6h": {
-    img: "css/card-library/images/hearts/hearts-r06.svg",
+    img: "../css/card-library/images/hearts/hearts-r06.svg",
   },
   "7h": {
-    img: "css/card-library/images/hearts/hearts-r07.svg",
+    img: "../css/card-library/images/hearts/hearts-r07.svg",
   },
   "8h": {
-    img: "css/card-library/images/hearts/hearts-r08.svg",
+    img: "../css/card-library/images/hearts/hearts-r08.svg",
   },
   "9h": {
-    img: "css/card-library/images/hearts/hearts-r09.svg",
+    img: "../css/card-library/images/hearts/hearts-r09.svg",
   },
   "10h": {
-    img: "css/card-library/images/hearts/hearts-r10.svg",
+    img: "../css/card-library/images/hearts/hearts-r10.svg",
   },
   Jh: {
-    img: "css/card-library/images/hearts/hearts-J.svg",
+    img: "../css/card-library/images/hearts/hearts-J.svg",
   },
   Qh: {
-    img: "css/card-library/images/hearts/hearts-Q.svg",
+    img: "../css/card-library/images/hearts/hearts-Q.svg",
   },
   Kh: {
-    img: "css/card-library/images/hearts/hearts-K.svg",
+    img: "../css/card-library/images/hearts/hearts-K.svg",
   },
   Ah: {
-    img: "css/card-library/images/hearts/hearts-A.svg",
+    img: "../css/card-library/images/hearts/hearts-A.svg",
   },
   null: {
-    img: "css/card-library/images/backs/red.svg",
+    img: "../css/card-library/images/backs/red.svg",
   },
 };
 
