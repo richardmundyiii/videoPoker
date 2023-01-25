@@ -213,7 +213,7 @@ const secondDeck = {
     img: "css/card-library/images/hearts/hearts-A.svg",
   },
   null: {
-    img: "css/card-library/images/backs/red.svg",
+    img: ".css/card-library/images/backs/red.svg",
   },
 };
 
