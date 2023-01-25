@@ -234,8 +234,9 @@ playerCreditEl = document.getElementById("credit-message");
 dealBtnEl = document.getElementById("dealBtn");
 betOneBtnEl = document.getElementById("betBtn");
 betMaxBtnEl = document.getElementById("betBtnMax");
-deckCardEls = document.querySelector(".cards-row");
-playerCardEls = [...document.querySelectorAll(".cards-row > img")];
+playerCardEls = document.querySelectorAll(".cards-row > img");
+holdEls = document.querySelector(".hold-row");
+
 /*----- event listeners -----*/
 betOneBtnEl.addEventListener("click", handleBetOneClick);
 betMaxBtnEl.addEventListener("click", handleBetMaxClick);
@@ -263,13 +264,10 @@ function newHand() {
   hand = [null, null, null, null, null];
   playerCredits;
   playerWin;
-  betSize = 0;
+  betSize;
   handOver = true;
   gameOver = false;
   gameStage = "preFlop";
-
-  console.log(gameStage);
-  renderWinCredit();
 
   render();
 }
@@ -298,16 +296,16 @@ function finalStage() {
 //DECK SHUFFLE
 
 function deckShuffle() {
-  tempDeck = [...ORIGINAL_DECK];
+  deck = [...ORIGINAL_DECK];
   for (let k = 0; k < 1000; k++) {
-    for (let i = tempDeck.length - 1; i--; ) {
+    for (let i = deck.length - 1; i--; ) {
       let j = Math.floor(Math.random() * (i + 1));
-      let temp = tempDeck[i];
-      tempDeck[i] = tempDeck[j];
-      tempDeck[j] = temp;
+      let temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
     }
   }
-  return tempDeck;
+  return deck;
 }
 
 //HANDLE FUNCTIONS
@@ -318,13 +316,8 @@ function handleDealClick(evt) {
   if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
     deckShuffle();
 
-    playerHand = [
-      tempDeck[0],
-      tempDeck[1],
-      tempDeck[2],
-      tempDeck[3],
-      tempDeck[4],
-    ];
+    playerHand = [deck[0], deck[1], deck[2], deck[3], deck[4]];
+    renderPlayerHand();
 
     render();
   }
@@ -335,14 +328,20 @@ function handleReDeal() {}
 function handleBetOneClick() {
   if (betSize < 5 && (gameStage === "preFlop" || gameStage === "finish")) {
     betSize++;
+    playerCredits--;
     console.log(betSize);
+    newHand();
   } else return;
+
+  render();
 }
 
 function handleBetMaxClick() {
   if (betSize < 5 && handOver === true) {
     betSize = 5;
+    playerCredits = playerCredits - 5;
     console.log(betSize);
+    newHand();
     //increase bet size to 5
   } else return;
 }
@@ -375,16 +374,23 @@ function renderPostFlop() {
 
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
-    card.src = playerHand[playerHand[idx]].img;
+    card.src = secondDeck[playerHand[idx]].img;
   });
 }
 
 function renderFinalStage() {}
 
+// function renderHoldSign() {
+//   holdEls.forEach((el) => {
+//     el.classList.contains("hold");
+//   });
+// }
+
 function render() {
   renderPlayerCredit();
   renderWinCredit();
   renderBetMessage();
+  // renderHoldSign();
 }
 
 render();
@@ -394,31 +400,3 @@ render();
 // /*----- cached elements  -----*/
 // playerWinMessageEl = document.getElementById("payMessage");
 // deckCardEls = document.querySelector(".cards-row");
-
-// //ALL RENDER FUNCTIONS
-
-// function renderToggleHold() {
-//   if (holdEls.style.display === "none") {
-//     holdEls.style.display = "block";
-//   } else {
-//     holdEls.style.display = "none";
-//   }
-// }
-
-// //Render the current bet size
-// function renderBetSize() {
-//   betMessageEl.innerText = `Bet ${betSize}`;
-// }
-
-// //Render Win amount of previous hand
-// function renderPayMessage() {
-//   if (winEl === 0) {
-//     playerWinMessageEl.innerText = "";
-//   } else {
-//     playerWinMessageEl.innerText = `Win ${winEl}`;
-//   }
-// }
-
-// function renderCreditMessage() {
-//   creditMessageEl.innerText = `${playerCredit} CREDITS`;
-// }
