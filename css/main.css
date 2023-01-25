@@ -95,20 +95,20 @@ body {
   justify-content: space-between;
 }
 
-#betMessage {
+#bet-message {
   color: white;
   font-size: 2.75vmin;
   margin-left: 20px;
 }
 
-#creditMessage {
+#credit-message {
   font-size: 3.5vmin;
   color: rgb(157, 31, 20);
   margin-right: 50px;
   -webkit-text-stroke: 0.05vmin gold;
 }
 
-#payMessage {
+#pay-message {
   font-size: 3.5vmin;
   color: rgb(157, 31, 20);
   margin-left: 90px;
@@ -138,5 +138,5 @@ body {
 #card-3,
 #card-4,
 #card-5 {
-  visibility: hidden;
+  display: none;
 }

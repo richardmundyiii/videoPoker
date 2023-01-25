@@ -1,4 +1,4 @@
-/*----- constants -----*/
+// /*----- constants -----*/
 const ORIGINAL_DECK = [
   "2s",
   "3s",
@@ -217,200 +217,85 @@ const secondDeck = {
   },
 };
 
-// const WINNING_COMBOS = [
-//   {
-//     royal_flush: [
-//       ["As", "Ks", "Qs", "Js", "10s"],
-//       ["Ad", "Kd", "Qd", "Jd", "10d"],
-//       ["Ac", "Kc", "Qc", "Jc", "10c"],
-//       ["Ah", "Kh", "Qh", "Jh", "10h"],
-//     ],
-//   },
-//   {
-//     straight_flush: [
-//       ["2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "Js", "Qs", "Ks"],
-//       ["2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "Jd", "Qd", "Kd"],
-//       ["2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "10c", "Jc", "Qc", "Kc"],
-//       ["2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "Jh", "Qh", "Kh"],
-//     ],
-//   },
-//   {
-//     fourAcesWithKicker: [
-//       ["As", "Ad", "Ac", "Ah", "2"][("As", "Ad", "Ac", "Ah", "3")][
-//         ("As", "Ad", "Ac", "Ah", "4")
-//       ],
-//     ],
-//   },
-//   {
-//     fourSpecialWithKicker: [
-//       ["2s", "2d", "2c", "2h", "A"][("2s", "2d", "2c", "2h", "3")][
-//         ("2s", "2d", "2c", "2h", "4")
-//       ][("3s", "3d", "3c", "3h", "A")][("3s", "3d", "3c", "3h", "2")][
-//         ("3s", "3d", "3c", "3h", "4")
-//       ][("4s", "4d", "4c", "4h", "A")][("4s", "4d", "4c", "4h", "2")][
-//         ("4s", "4d", "4c", "4h", "3")
-//       ],
-//     ],
-//   },
-// ];
-
 /*----- state variables -----*/
-let playerCredit;
-let speed;
 let betSize;
-let playerHand;
-let shuffle;
+let playerCredits;
+let handOver;
+let gameOver;
 let deck;
-let tempDeck;
-let winEl;
 let gameStage;
+let playerHand;
+let playerWin;
 
 /*----- cached elements  -----*/
+payoutEl = document.getElementById("pay-message");
+betMessageEl = document.getElementById("bet-message");
+playerCreditEl = document.getElementById("credit-message");
 dealBtnEl = document.getElementById("dealBtn");
-maxBetEl = document.getElementById("betBtnMax");
-oneBetEl = document.getElementById("betBtn");
-betMessageEl = document.getElementById("betMessage");
+betOneBtnEl = document.getElementById("betBtn");
+betMaxBtnEl = document.getElementById("betBtnMax");
+deckCardEls = document.querySelector(".cards-row");
 playerCardEls = [...document.querySelectorAll(".cards-row > img")];
-playerWinMessageEl = document.getElementById("payMessage");
-holdEls = [...document.querySelectorAll(".hold-row > p")];
-creditMessageEl = document.getElementById("creditMessage");
-deckCardEls = document.getElementById("card-row");
-
 /*----- event listeners -----*/
-dealBtnEl.addEventListener("click", handleDeal);
-maxBetEl.addEventListener("click", handleMaxBet);
-oneBetEl.addEventListener("click", handleOneBet);
+betOneBtnEl.addEventListener("click", handleBetOneClick);
+betMaxBtnEl.addEventListener("click", handleBetMaxClick);
+dealBtnEl.addEventListener("click", handleDealClick);
+dealBtnEl.addEventListener("click", handleReDeal);
 
 /*----- functions -----*/
+
+//GAME OPERATIONS FUNCTIONS
 init();
 
 function init() {
-  playerHand = [null, null, null, null, null];
+  hand = [null, null, null, null, null];
   betSize = 0;
-  playerCredit = 400;
-  winEl = 0;
-  gameStage = "preflop";
-  dealBtnEl.setAttribute("disabled", "");
-  renderCreditMessage();
-  renderBetSize();
-  renderPayMessage();
-  renderHoldEls();
+  playerCredits = 400;
+  handOver = true;
+  gameOver = false;
+  gameStage = "preFlop";
+  playerWin = 0;
+
+  render();
+}
+
+function newHand() {
+  hand = [null, null, null, null, null];
+  playerCredits;
+  playerWin;
+  betSize = 0;
+  handOver = true;
+  gameOver = false;
+  gameStage = "preFlop";
+
+  console.log(gameStage);
+  renderWinCredit();
 
   render();
 }
 
 function postFlop() {
-  maxBetEl.setAttribute("disabled", "");
-  oneBetEl.setAttribute("disabled", "");
-
-  deckCardEls.addEventListener("click", (evt) => {
-    cardSelection = evt.target;
-    console.log(cardSelection);
-  });
-
-  reDraw();
-
-  render();
-}
-
-//ALL HANDLE FUNCTIONS
-
-//When DEAL Button is pressed
-function handleDeal(evt) {
-  if (evt.target.tagName !== "BUTTON") return;
-  deckShuffle();
-  playerHand = [
-    tempDeck[0],
-    tempDeck[1],
-    tempDeck[2],
-    tempDeck[3],
-    tempDeck[4],
-  ];
-
-  postFlop();
-
-  render();
-}
-
-function reDraw() {}
-
-//When Bet One Button is pressed
-function handleOneBet(evt) {
-  if (evt.target.tagName !== "BUTTON") return;
-  if (betSize < 5) {
-    betSize++;
-    playerCredit = playerCredit - 1;
-    renderBetSize();
-    renderCreditMessage();
-  } else return;
-  if (betSize !== 0) {
-    dealBtnEl.removeAttribute("disabled");
-  }
-
-  render();
-}
-
-//When Max Bet button is pressed
-function handleMaxBet(evt) {
-  if (evt.target.tagName !== "BUTTON") return;
-  if (betSize < 5) {
-    betSize = 5;
-    playerCredit = playerCredit - 5;
-    dealBtnEl.removeAttribute("disabled", "");
-    renderCreditMessage();
-    renderBetSize();
-  }
-
-  render();
-}
-
-//ALL RENDER FUNCTIONS
-
-function renderHoldEls() {
-  holdEls.forEach((element) => {
-    const holdContainerEl = element.style.visibility;
-    element.classList.contains("hidden")
-      ? (holdContainerEl = "visible")
-      : (holdContainerEl = "hidden");
-  });
-}
-
-function renderPlayerHand() {
-  playerCardEls.forEach((card, idx) => {
-    card.src = secondDeck[playerHand[idx]].img;
-  });
-}
-
-//Render the current bet size
-function renderBetSize() {
-  betMessageEl.innerText = `Bet ${betSize}`;
-}
-
-//Render Win amount of previous hand
-function renderPayMessage() {
-  if (winEl === 0) {
-    playerWinMessageEl.innerText = "";
-  } else {
-    playerWinMessageEl.innerText = `Win ${winEl}`;
-  }
-}
-
-function renderCreditMessage() {
-  creditMessageEl.innerText = `${playerCredit} CREDITS`;
-}
-
-function renderHighlightColumn() {
-  payoutC5.style.border = "1px solid gold";
-}
-
-function render() {
-  renderBetSize();
-  renderPayMessage();
+  gameStage = "postFlop";
+  // player cards clickable => hold don't hold
+  deckCardEls.addEventListener("click", handleCardClick);
+  // Deal button now removes non-hold cards from array and replaces them
+  //with the next 1 through 5 cards in the array without shuffloing the deck.
   renderPlayerHand();
-  renderCreditMessage();
+  console.log(gameStage);
 }
 
-// SHUFFLING DECK
+function finalStage() {
+  gameStage = "finish";
+  if (playerCredits === 0) return;
+  //determine if hand wins
+  //if winner, display amount won and increase player credit
+  playerWin = 0;
+  //deal button disabled
+  //if bet button pressed, switch to new hand function
+  console.log(gameStage);
+}
+
+//DECK SHUFFLE
 
 function deckShuffle() {
   tempDeck = [...ORIGINAL_DECK];
@@ -425,4 +310,115 @@ function deckShuffle() {
   return tempDeck;
 }
 
+//HANDLE FUNCTIONS
+function handleDealClick(evt) {
+  // GUARD
+  if (evt.target.tagName !== "BUTTON") return;
+  //PREFLOP CLICK
+  if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
+    deckShuffle();
+
+    playerHand = [
+      tempDeck[0],
+      tempDeck[1],
+      tempDeck[2],
+      tempDeck[3],
+      tempDeck[4],
+    ];
+
+    render();
+  }
+}
+
+function handleReDeal() {}
+
+function handleBetOneClick() {
+  if (betSize < 5 && (gameStage === "preFlop" || gameStage === "finish")) {
+    betSize++;
+    console.log(betSize);
+  } else return;
+}
+
+function handleBetMaxClick() {
+  if (betSize < 5 && handOver === true) {
+    betSize = 5;
+    console.log(betSize);
+    //increase bet size to 5
+  } else return;
+}
+
+function handleCardClick() {
+  console.log("clicked");
+}
+
+// RENDERR FUNCTIONS
+
+function renderWinCredit() {
+  payoutEl.innerText = `WIN ${playerWin}`;
+}
+
+function renderBetMessage() {
+  betMessageEl.innerText = `Bet ${betSize}`;
+}
+
+function renderPlayerCredit() {
+  playerCreditEl.innerText = `${playerCredits} CREDITS`;
+}
+
+function renderPreFlop() {}
+
+function renderPostFlop() {
+  //bet buttons disabled
+  betOneBtnEl.setAttribute("disabled", "");
+  betMaxBtnEl.setAttribute("disabled", "");
+}
+
+function renderPlayerHand() {
+  playerCardEls.forEach((card, idx) => {
+    card.src = playerHand[playerHand[idx]].img;
+  });
+}
+
+function renderFinalStage() {}
+
+function render() {
+  renderPlayerCredit();
+  renderWinCredit();
+  renderBetMessage();
+}
+
 render();
+
+//  <! ------------------------------------------------------- !>
+
+// /*----- cached elements  -----*/
+// playerWinMessageEl = document.getElementById("payMessage");
+// deckCardEls = document.querySelector(".cards-row");
+
+// //ALL RENDER FUNCTIONS
+
+// function renderToggleHold() {
+//   if (holdEls.style.display === "none") {
+//     holdEls.style.display = "block";
+//   } else {
+//     holdEls.style.display = "none";
+//   }
+// }
+
+// //Render the current bet size
+// function renderBetSize() {
+//   betMessageEl.innerText = `Bet ${betSize}`;
+// }
+
+// //Render Win amount of previous hand
+// function renderPayMessage() {
+//   if (winEl === 0) {
+//     playerWinMessageEl.innerText = "";
+//   } else {
+//     playerWinMessageEl.innerText = `Win ${winEl}`;
+//   }
+// }
+
+// function renderCreditMessage() {
+//   creditMessageEl.innerText = `${playerCredit} CREDITS`;
+// }
