@@ -417,7 +417,7 @@ const secondDeck = [
     isHold: false,
   },
   {
-    card: null,
+    card: "null",
     rank: null,
     suit: null,
     img: "../css/card-library/images/backs/red.svg",
@@ -488,8 +488,9 @@ function newHand() {
 function postFlop() {
   gameStage = "postFlop";
 
-  renderPlayerHand();
   holdCards();
+  renderPlayerHand();
+  handleReDeal();
 }
 
 function finalStage() {
@@ -560,7 +561,6 @@ function handleCardClick(evt) {
   // GUARD
   if (evt.target.tagName !== "IMG");
   if (gameStage === "postFlop") {
-    // secondDeck[playerHand[cardIdx]].isShowing = false;
     playerHand[cardIdx].isHold = true;
   } else return;
 
@@ -573,10 +573,27 @@ function holdCards() {
     if (element.isHold === true) {
       let holdElement = document.getElementById(`card-${idx + 1}`);
       holdElement.style.visibility = "visible";
+      element = deck[5];
     } else return;
 
     render();
   });
+}
+
+function handleReDeal(evt) {
+  if (evt.target.tagName !== "BUTTON") return;
+  if (gameStage === "postFlop") {
+    let cardsNeeded = 4;
+    for (let i = 0; i < playerHand.length; i++) {
+      if (playerHand[i].isHold === false) {
+        console.log(playerHand[i], cardsNeeded);
+        cardsNeeded++;
+        playerHand[i] = deck[cardsNeeded];
+        // playerHand.splice(playerHand[i], 1, deck[cardsNeeded]);
+      }
+    }
+  }
+  render();
 }
 
 // RENDER FUNCTIONS
@@ -604,33 +621,30 @@ function renderPostFlop() {
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
     card.src = playerHand[idx].img;
+    console.log(card);
   });
 }
 
 function renderFinalStage() {}
 
-// function renderCardClick() {
-//   playerHand.forEach((element, idx) => {
-//     if (element.isHold === "true") {
-//       console.log("needs a hold sign", idx);
-//     }
-//   });
-// }
-
-function handleReDeal() {}
+function replaceCards(el) {
+  el = deck[6];
+}
 
 function render() {
   renderPlayerCredit();
   renderWinCredit();
   renderBetMessage();
+  renderPlayerHand();
   // renderCardClick();
   // renderHoldSign();
 }
 
+function renderReDeal() {
+  renderPlayerHand();
+}
+
 render();
 
-//  <! ------------------------------------------------------- !>
-
-// /*----- cached elements  -----*/
-// playerWinMessageEl = document.getElementById("payMessage");
-// deckCardEls = document.querySelector(".cards-row");
+//FUNCTION WINNING LOGIC
+function getWinner() {}
