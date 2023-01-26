@@ -489,7 +489,7 @@ function postFlop() {
   gameStage = "postFlop";
 
   renderPlayerHand();
-  console.log(gameStage);
+  holdCards();
 }
 
 function finalStage() {
@@ -534,18 +534,11 @@ function handleDealClick(evt) {
   }
 }
 
-// function handleReDeal() {
-//   if (secondDeck.isHold === false) {
-//     playerHand.splice(idx, 1, deck[idx]);
-//   }
-// }
-
 // HANDLE BET SIZE CLICKS
 function handleBetOneClick() {
   if (betSize < 5 && (gameStage === "preFlop" || gameStage === "finish")) {
     betSize++;
     playerCredits--;
-    console.log(betSize);
     newHand();
   } else return;
 
@@ -556,7 +549,6 @@ function handleBetMaxClick() {
   if (betSize < 5 && handOver === true) {
     betSize = 5;
     playerCredits = playerCredits - 5;
-    console.log(betSize);
     newHand();
     //increase bet size to 5
   } else return;
@@ -570,9 +562,21 @@ function handleCardClick(evt) {
   if (gameStage === "postFlop") {
     // secondDeck[playerHand[cardIdx]].isShowing = false;
     playerHand[cardIdx].isHold = true;
+  } else return;
+
+  holdCards();
+  render();
+}
+
+function holdCards() {
+  playerHand.forEach((element, idx) => {
+    if (element.isHold === true) {
+      let holdElement = document.getElementById(`card-${idx + 1}`);
+      holdElement.style.visibility = "visible";
+    } else return;
 
     render();
-  } else return;
+  });
 }
 
 // RENDER FUNCTIONS
@@ -605,15 +609,13 @@ function renderPlayerHand() {
 
 function renderFinalStage() {}
 
-function renderCardClick() {
-  if (secondDeck.isShowing === false) {
-    secondDeck.img = "../css/card-library/images/backs/red.svg";
-  } else return;
-  if (secondDeck.isHold === true) {
-    console.log("holding card...");
-  }
-  render();
-}
+// function renderCardClick() {
+//   playerHand.forEach((element, idx) => {
+//     if (element.isHold === "true") {
+//       console.log("needs a hold sign", idx);
+//     }
+//   });
+// }
 
 function handleReDeal() {}
 
@@ -621,7 +623,7 @@ function render() {
   renderPlayerCredit();
   renderWinCredit();
   renderBetMessage();
-  renderCardClick();
+  // renderCardClick();
   // renderHoldSign();
 }
 

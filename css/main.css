@@ -138,5 +138,5 @@ body {
 #card-3,
 #card-4,
 #card-5 {
-  display: none;
+  visibility: hidden;
 }
