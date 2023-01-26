@@ -55,273 +55,432 @@ const ORIGINAL_DECK = [
   "null",
 ];
 
-const secondDeck = {
-  "2s": {
+const secondDeck = [
+  {
+    card: "2s",
+    rank: 2,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r02.svg",
     isShowing: true,
     isHold: false,
   },
-  "3s": {
+  {
+    card: "3s",
+    rank: 3,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r03.svg",
     isShowing: true,
     isHold: false,
   },
-  "4s": {
+  {
+    card: "4s",
+    rank: 4,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r04.svg",
     isShowing: true,
     isHold: false,
   },
-  "5s": {
+  {
+    card: "5s",
+    rank: 5,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r05.svg",
     isShowing: true,
     isHold: false,
   },
-  "6s": {
+  {
+    card: "6s",
+    rank: 6,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r06.svg",
     isShowing: true,
     isHold: false,
   },
-  "7s": {
+  {
+    card: "7s",
+    rank: 7,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r07.svg",
     isShowing: true,
     isHold: false,
   },
-  "8s": {
+  {
+    card: "8s",
+    rank: 8,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r08.svg",
     isShowing: true,
     isHold: false,
   },
-  "9s": {
+  {
+    card: "9s",
+    rank: 9,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r09.svg",
     isShowing: true,
     isHold: false,
   },
-  "10s": {
+  {
+    card: "10s",
+    rank: 10,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-r10.svg",
     isShowing: true,
     isHold: false,
   },
-  Js: {
+  {
+    card: "Js",
+    rank: 11,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-J.svg",
     isShowing: true,
     isHold: false,
   },
-  Qs: {
+  {
+    card: "Qs",
+    rank: 12,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-Q.svg",
     isShowing: true,
     isHold: false,
   },
-  Ks: {
+  {
+    card: "Ks",
+    rank: 13,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-K.svg",
     isShowing: true,
     isHold: false,
   },
-  As: {
+  {
+    card: "As",
+    rank: 14,
+    suit: "spades",
     img: "../css/card-library/images/spades/spades-A.svg",
     isShowing: true,
     isHold: false,
   },
-  "2d": {
+  {
+    card: "2d",
+    rank: 2,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r02.svg",
     isShowing: true,
     isHold: false,
   },
-  "3d": {
+  {
+    card: "3d",
+    rank: 3,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r03.svg",
     isShowing: true,
     isHold: false,
   },
-  "4d": {
+  {
+    card: "4d",
+    rank: 4,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r04.svg",
     isShowing: true,
     isHold: false,
   },
-  "5d": {
+  {
+    card: "5d",
+    rank: 5,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r05.svg",
     isShowing: true,
     isHold: false,
   },
-  "6d": {
+  {
+    card: "6d",
+    rank: 6,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r06.svg",
     isShowing: true,
     isHold: false,
   },
-  "7d": {
+  {
+    card: "7d",
+    rank: 7,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r07.svg",
     isShowing: true,
     isHold: false,
   },
-  "8d": {
+  {
+    card: "8d",
+    rank: 8,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r08.svg",
     isShowing: true,
     isHold: false,
   },
-  "9d": {
+  {
+    card: "9d",
+    rank: 9,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r09.svg",
     isShowing: true,
     isHold: false,
   },
-  "10d": {
+  {
+    card: "10d",
+    rank: 10,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-r10.svg",
     isShowing: true,
     isHold: false,
   },
-  Jd: {
+  {
+    card: "Jd",
+    rank: 11,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-J.svg",
     isShowing: true,
     isHold: false,
   },
-  Qd: {
+  {
+    card: "Qd",
+    rank: 12,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-Q.svg",
     isShowing: true,
     isHold: false,
   },
-  Kd: {
+  {
+    card: "Kd",
+    rank: 13,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-K.svg",
     isShowing: true,
     isHold: false,
   },
-  Ad: {
+  {
+    card: "Ad",
+    rank: 14,
+    suit: "diamonds",
     img: "../css/card-library/images/diamonds/diamonds-A.svg",
     isShowing: true,
     isHold: false,
   },
-  "2c": {
+  {
+    card: "2c",
+    rank: 2,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r02.svg",
     isShowing: true,
     isHold: false,
   },
-  "3c": {
+  {
+    card: "3c",
+    rank: 3,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r03.svg",
     isShowing: true,
     isHold: false,
   },
-  "4c": {
+  {
+    card: "4c",
+    rank: 4,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r04.svg",
     isShowing: true,
     isHold: false,
   },
-  "5c": {
+  {
+    card: "5c",
+    rank: 5,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r05.svg",
     isShowing: true,
     isHold: false,
   },
-  "6c": {
+  {
+    card: "6c",
+    rank: 6,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r06.svg",
     isShowing: true,
     isHold: false,
   },
-  "7c": {
+  {
+    card: "7c",
+    rank: 7,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r07.svg",
     isShowing: true,
     isHold: false,
   },
-  "8c": {
+  {
+    card: "8c",
+    rank: 8,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r08.svg",
     isShowing: true,
     isHold: false,
   },
-  "9c": {
+  {
+    card: "9c",
+    rank: 9,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r09.svg",
     isShowing: true,
     isHold: false,
   },
-  "10c": {
+  {
+    card: "10c",
+    rank: 10,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-r10.svg",
     isShowing: true,
     isHold: false,
   },
-  Jc: {
+  {
+    card: "Jc",
+    rank: 11,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-J.svg",
     isShowing: true,
     isHold: false,
   },
-  Qc: {
+  {
+    card: "Qc",
+    rank: 12,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-Q.svg",
     isShowing: true,
     isHold: false,
   },
-  Kc: {
+  {
+    card: "Kc",
+    rank: 13,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-K.svg",
     isShowing: true,
     isHold: false,
   },
-  Ac: {
+  {
+    card: "Ac",
+    rank: 14,
+    suit: "clubs",
     img: "../css/card-library/images/clubs/clubs-A.svg",
     isShowing: true,
     isHold: false,
   },
-  "2h": {
+  {
+    card: "2h",
+    rank: 2,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r02.svg",
     isShowing: true,
     isHold: false,
   },
-  "3h": {
+  {
+    card: "3h",
+    rank: 3,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r03.svg",
     isShowing: true,
     isHold: false,
   },
-  "4h": {
+  {
+    card: "4h",
+    rank: 4,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r04.svg",
     isShowing: true,
     isHold: false,
   },
-  "5h": {
+  {
+    card: "5h",
+    rank: 5,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r05.svg",
     isShowing: true,
     isHold: false,
   },
-  "6h": {
+  {
+    card: "6h",
+    rank: 6,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r06.svg",
     isShowing: true,
     isHold: false,
   },
-  "7h": {
+  {
+    card: "7h",
+    rank: 7,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r07.svg",
     isShowing: true,
     isHold: false,
   },
-  "8h": {
+  {
+    card: "8h",
+    rank: 8,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r08.svg",
     isShowing: true,
     isHold: false,
   },
-  "9h": {
+  {
+    card: "9h",
+    rank: 9,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r09.svg",
     isShowing: true,
     isHold: false,
   },
-  "10h": {
+  {
+    card: "10h",
+    rank: 10,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-r10.svg",
     isShowing: true,
     isHold: false,
   },
-  Jh: {
+  {
+    card: "Jh",
+    rank: 11,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-J.svg",
     isShowing: true,
     isHold: false,
   },
-  Qh: {
+  {
+    card: "Qh",
+    rank: 12,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-Q.svg",
     isShowing: true,
     isHold: false,
   },
-  Kh: {
+  {
+    card: "Kh",
+    rank: 13,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-K.svg",
     isShowing: true,
     isHold: false,
   },
-  Ah: {
+  {
+    card: "Ah",
+    rank: 14,
+    suit: "hearts",
     img: "../css/card-library/images/hearts/hearts-A.svg",
     isShowing: true,
     isHold: false,
   },
-  null: {
+  {
+    card: null,
+    rank: null,
+    suit: null,
     img: "../css/card-library/images/backs/red.svg",
     isShowing: true,
     isHold: false,
   },
-};
+];
 
 /*----- state variables -----*/
 let betSize;
@@ -403,7 +562,7 @@ function finalStage() {
 //DECK SHUFFLE
 
 function deckShuffle() {
-  deck = [...ORIGINAL_DECK];
+  deck = [...secondDeck];
   for (let k = 0; k < 1000; k++) {
     for (let i = deck.length - 1; i--; ) {
       let j = Math.floor(Math.random() * (i + 1));
@@ -465,8 +624,8 @@ function handleCardClick(evt) {
   // GUARD
   if (evt.target.tagName !== "IMG");
   if (gameStage === "postFlop") {
-    secondDeck[playerHand[cardIdx]].isShowing = false;
-    secondDeck[playerHand[cardIdx]].isHold = "true";
+    // secondDeck[playerHand[cardIdx]].isShowing = false;
+    playerHand[cardIdx].isHold = true;
 
     render();
   } else return;
@@ -496,7 +655,7 @@ function renderPostFlop() {
 
 function renderPlayerHand() {
   playerCardEls.forEach((card, idx) => {
-    card.src = secondDeck[playerHand[idx]].img;
+    card.src = playerHand[idx].img;
   });
 }
 
@@ -511,6 +670,8 @@ function renderCardClick() {
   }
   render();
 }
+
+function handleReDeal() {}
 
 function render() {
   renderPlayerCredit();
