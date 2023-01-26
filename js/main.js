@@ -58,162 +58,268 @@ const ORIGINAL_DECK = [
 const secondDeck = {
   "2s": {
     img: "../css/card-library/images/spades/spades-r02.svg",
+    isShowing: true,
+    isHold: false,
   },
   "3s": {
     img: "../css/card-library/images/spades/spades-r03.svg",
+    isShowing: true,
+    isHold: false,
   },
   "4s": {
     img: "../css/card-library/images/spades/spades-r04.svg",
+    isShowing: true,
+    isHold: false,
   },
   "5s": {
     img: "../css/card-library/images/spades/spades-r05.svg",
+    isShowing: true,
+    isHold: false,
   },
   "6s": {
     img: "../css/card-library/images/spades/spades-r06.svg",
+    isShowing: true,
+    isHold: false,
   },
   "7s": {
     img: "../css/card-library/images/spades/spades-r07.svg",
+    isShowing: true,
+    isHold: false,
   },
   "8s": {
     img: "../css/card-library/images/spades/spades-r08.svg",
+    isShowing: true,
+    isHold: false,
   },
   "9s": {
     img: "../css/card-library/images/spades/spades-r09.svg",
+    isShowing: true,
+    isHold: false,
   },
   "10s": {
     img: "../css/card-library/images/spades/spades-r10.svg",
+    isShowing: true,
+    isHold: false,
   },
   Js: {
     img: "../css/card-library/images/spades/spades-J.svg",
+    isShowing: true,
+    isHold: false,
   },
   Qs: {
     img: "../css/card-library/images/spades/spades-Q.svg",
+    isShowing: true,
+    isHold: false,
   },
   Ks: {
     img: "../css/card-library/images/spades/spades-K.svg",
+    isShowing: true,
+    isHold: false,
   },
   As: {
     img: "../css/card-library/images/spades/spades-A.svg",
+    isShowing: true,
+    isHold: false,
   },
   "2d": {
     img: "../css/card-library/images/diamonds/diamonds-r02.svg",
+    isShowing: true,
+    isHold: false,
   },
   "3d": {
     img: "../css/card-library/images/diamonds/diamonds-r03.svg",
+    isShowing: true,
+    isHold: false,
   },
   "4d": {
     img: "../css/card-library/images/diamonds/diamonds-r04.svg",
+    isShowing: true,
+    isHold: false,
   },
   "5d": {
     img: "../css/card-library/images/diamonds/diamonds-r05.svg",
+    isShowing: true,
+    isHold: false,
   },
   "6d": {
     img: "../css/card-library/images/diamonds/diamonds-r06.svg",
+    isShowing: true,
+    isHold: false,
   },
   "7d": {
     img: "../css/card-library/images/diamonds/diamonds-r07.svg",
+    isShowing: true,
+    isHold: false,
   },
   "8d": {
     img: "../css/card-library/images/diamonds/diamonds-r08.svg",
+    isShowing: true,
+    isHold: false,
   },
   "9d": {
     img: "../css/card-library/images/diamonds/diamonds-r09.svg",
+    isShowing: true,
+    isHold: false,
   },
   "10d": {
     img: "../css/card-library/images/diamonds/diamonds-r10.svg",
+    isShowing: true,
+    isHold: false,
   },
   Jd: {
     img: "../css/card-library/images/diamonds/diamonds-J.svg",
+    isShowing: true,
+    isHold: false,
   },
   Qd: {
     img: "../css/card-library/images/diamonds/diamonds-Q.svg",
+    isShowing: true,
+    isHold: false,
   },
   Kd: {
     img: "../css/card-library/images/diamonds/diamonds-K.svg",
+    isShowing: true,
+    isHold: false,
   },
   Ad: {
     img: "../css/card-library/images/diamonds/diamonds-A.svg",
+    isShowing: true,
+    isHold: false,
   },
   "2c": {
     img: "../css/card-library/images/clubs/clubs-r02.svg",
+    isShowing: true,
+    isHold: false,
   },
   "3c": {
     img: "../css/card-library/images/clubs/clubs-r03.svg",
+    isShowing: true,
+    isHold: false,
   },
   "4c": {
     img: "../css/card-library/images/clubs/clubs-r04.svg",
+    isShowing: true,
+    isHold: false,
   },
   "5c": {
     img: "../css/card-library/images/clubs/clubs-r05.svg",
+    isShowing: true,
+    isHold: false,
   },
   "6c": {
     img: "../css/card-library/images/clubs/clubs-r06.svg",
+    isShowing: true,
+    isHold: false,
   },
   "7c": {
     img: "../css/card-library/images/clubs/clubs-r07.svg",
+    isShowing: true,
+    isHold: false,
   },
   "8c": {
     img: "../css/card-library/images/clubs/clubs-r08.svg",
+    isShowing: true,
+    isHold: false,
   },
   "9c": {
     img: "../css/card-library/images/clubs/clubs-r09.svg",
+    isShowing: true,
+    isHold: false,
   },
   "10c": {
     img: "../css/card-library/images/clubs/clubs-r10.svg",
+    isShowing: true,
+    isHold: false,
   },
   Jc: {
     img: "../css/card-library/images/clubs/clubs-J.svg",
+    isShowing: true,
+    isHold: false,
   },
   Qc: {
     img: "../css/card-library/images/clubs/clubs-Q.svg",
+    isShowing: true,
+    isHold: false,
   },
   Kc: {
     img: "../css/card-library/images/clubs/clubs-K.svg",
+    isShowing: true,
+    isHold: false,
   },
   Ac: {
     img: "../css/card-library/images/clubs/clubs-A.svg",
+    isShowing: true,
+    isHold: false,
   },
   "2h": {
     img: "../css/card-library/images/hearts/hearts-r02.svg",
+    isShowing: true,
+    isHold: false,
   },
   "3h": {
     img: "../css/card-library/images/hearts/hearts-r03.svg",
+    isShowing: true,
+    isHold: false,
   },
   "4h": {
     img: "../css/card-library/images/hearts/hearts-r04.svg",
+    isShowing: true,
+    isHold: false,
   },
   "5h": {
     img: "../css/card-library/images/hearts/hearts-r05.svg",
+    isShowing: true,
+    isHold: false,
   },
   "6h": {
     img: "../css/card-library/images/hearts/hearts-r06.svg",
+    isShowing: true,
+    isHold: false,
   },
   "7h": {
     img: "../css/card-library/images/hearts/hearts-r07.svg",
+    isShowing: true,
+    isHold: false,
   },
   "8h": {
     img: "../css/card-library/images/hearts/hearts-r08.svg",
+    isShowing: true,
+    isHold: false,
   },
   "9h": {
     img: "../css/card-library/images/hearts/hearts-r09.svg",
+    isShowing: true,
+    isHold: false,
   },
   "10h": {
     img: "../css/card-library/images/hearts/hearts-r10.svg",
+    isShowing: true,
+    isHold: false,
   },
   Jh: {
     img: "../css/card-library/images/hearts/hearts-J.svg",
+    isShowing: true,
+    isHold: false,
   },
   Qh: {
     img: "../css/card-library/images/hearts/hearts-Q.svg",
+    isShowing: true,
+    isHold: false,
   },
   Kh: {
     img: "../css/card-library/images/hearts/hearts-K.svg",
+    isShowing: true,
+    isHold: false,
   },
   Ah: {
     img: "../css/card-library/images/hearts/hearts-A.svg",
+    isShowing: true,
+    isHold: false,
   },
   null: {
     img: "../css/card-library/images/backs/red.svg",
+    isShowing: true,
+    isHold: false,
   },
 };
 
@@ -235,13 +341,17 @@ dealBtnEl = document.getElementById("dealBtn");
 betOneBtnEl = document.getElementById("betBtn");
 betMaxBtnEl = document.getElementById("betBtnMax");
 playerCardEls = document.querySelectorAll(".cards-row > img");
+holdCardEls = document.querySelector(".cards-row");
 holdEls = document.querySelector(".hold-row");
 
 /*----- event listeners -----*/
 betOneBtnEl.addEventListener("click", handleBetOneClick);
 betMaxBtnEl.addEventListener("click", handleBetMaxClick);
-dealBtnEl.addEventListener("click", handleDealClick);
-dealBtnEl.addEventListener("click", handleReDeal);
+dealBtnEl.addEventListener("click", function (evt) {
+  handleDealClick(evt);
+  handleReDeal(evt);
+});
+holdCardEls.addEventListener("click", handleCardClick);
 
 /*----- functions -----*/
 
@@ -274,10 +384,7 @@ function newHand() {
 
 function postFlop() {
   gameStage = "postFlop";
-  // player cards clickable => hold don't hold
-  deckCardEls.addEventListener("click", handleCardClick);
-  // Deal button now removes non-hold cards from array and replaces them
-  //with the next 1 through 5 cards in the array without shuffloing the deck.
+
   renderPlayerHand();
   console.log(gameStage);
 }
@@ -318,13 +425,19 @@ function handleDealClick(evt) {
 
     playerHand = [deck[0], deck[1], deck[2], deck[3], deck[4]];
     renderPlayerHand();
+    postFlop();
 
     render();
   }
 }
 
-function handleReDeal() {}
+// function handleReDeal() {
+//   if (secondDeck.isHold === false) {
+//     playerHand.splice(idx, 1, deck[idx]);
+//   }
+// }
 
+// HANDLE BET SIZE CLICKS
 function handleBetOneClick() {
   if (betSize < 5 && (gameStage === "preFlop" || gameStage === "finish")) {
     betSize++;
@@ -346,11 +459,20 @@ function handleBetMaxClick() {
   } else return;
 }
 
-function handleCardClick() {
-  console.log("clicked");
+// HANDLE CARD CLICKS FOR HOLD
+function handleCardClick(evt) {
+  let cardIdx = evt.target.alt - 1;
+  // GUARD
+  if (evt.target.tagName !== "IMG");
+  if (gameStage === "postFlop") {
+    secondDeck[playerHand[cardIdx]].isShowing = false;
+    secondDeck[playerHand[cardIdx]].isHold = "true";
+
+    render();
+  } else return;
 }
 
-// RENDERR FUNCTIONS
+// RENDER FUNCTIONS
 
 function renderWinCredit() {
   payoutEl.innerText = `WIN ${playerWin}`;
@@ -380,16 +502,21 @@ function renderPlayerHand() {
 
 function renderFinalStage() {}
 
-// function renderHoldSign() {
-//   holdEls.forEach((el) => {
-//     el.classList.contains("hold");
-//   });
-// }
+function renderCardClick() {
+  if (secondDeck.isShowing === false) {
+    secondDeck.img = "../css/card-library/images/backs/red.svg";
+  } else return;
+  if (secondDeck.isHold === true) {
+    console.log("holding card...");
+  }
+  render();
+}
 
 function render() {
   renderPlayerCredit();
   renderWinCredit();
   renderBetMessage();
+  renderCardClick();
   // renderHoldSign();
 }
 
