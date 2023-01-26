@@ -416,14 +416,6 @@ const secondDeck = [
     isShowing: true,
     isHold: false,
   },
-  {
-    card: "null",
-    rank: null,
-    suit: null,
-    img: "../css/card-library/images/backs/red.svg",
-    isShowing: true,
-    isHold: false,
-  },
 ];
 
 /*----- state variables -----*/
@@ -450,9 +442,12 @@ holdEls = document.querySelector(".hold-row");
 /*----- event listeners -----*/
 betOneBtnEl.addEventListener("click", handleBetOneClick);
 betMaxBtnEl.addEventListener("click", handleBetMaxClick);
-dealBtnEl.addEventListener("click", function (evt) {
-  handleDealClick(evt);
-  handleReDeal(evt);
+dealBtnEl.addEventListener("click", function () {
+  if (gameStage === "preFlop") {
+    handleDealClick();
+  } else if (gameStage === "postFlop") {
+    handleReDeal();
+  }
 });
 holdCardEls.addEventListener("click", handleCardClick);
 
@@ -463,6 +458,7 @@ init();
 
 function init() {
   hand = [null, null, null, null, null];
+  playerHand = [];
   betSize = 0;
   playerCredits = 400;
   handOver = true;
@@ -485,14 +481,6 @@ function newHand() {
   render();
 }
 
-function postFlop() {
-  gameStage = "postFlop";
-
-  holdCards();
-  renderPlayerHand();
-  handleReDeal();
-}
-
 function finalStage() {
   gameStage = "finish";
   if (playerCredits === 0) return;
@@ -509,7 +497,7 @@ function finalStage() {
 function deckShuffle() {
   deck = [...secondDeck];
   for (let k = 0; k < 1000; k++) {
-    for (let i = deck.length - 1; i--; ) {
+    for (let i = deck.length; i--; ) {
       let j = Math.floor(Math.random() * (i + 1));
       let temp = deck[i];
       deck[i] = deck[j];
@@ -521,15 +509,12 @@ function deckShuffle() {
 
 //HANDLE FUNCTIONS
 function handleDealClick(evt) {
-  // GUARD
-  if (evt.target.tagName !== "BUTTON") return;
   //PREFLOP CLICK
   if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
     deckShuffle();
 
-    playerHand = [deck[0], deck[1], deck[2], deck[3], deck[4]];
-    renderPlayerHand();
-    postFlop();
+    playerHand = deck.splice(0, 5);
+    gameStage = "postFlop";
 
     render();
   }
@@ -580,19 +565,15 @@ function holdCards() {
   });
 }
 
-function handleReDeal(evt) {
-  if (evt.target.tagName !== "BUTTON") return;
+function handleReDeal() {
   if (gameStage === "postFlop") {
-    let cardsNeeded = 4;
     for (let i = 0; i < playerHand.length; i++) {
-      if (playerHand[i].isHold === false) {
-        console.log(playerHand[i], cardsNeeded);
-        cardsNeeded++;
-        playerHand[i] = deck[cardsNeeded];
-        // playerHand.splice(playerHand[i], 1, deck[cardsNeeded]);
+      if (!playerHand[i].isHold) {
+        playerHand.splice(i, 1, deck.pop());
       }
     }
   }
+  gameStage = "final";
   render();
 }
 
@@ -610,18 +591,11 @@ function renderPlayerCredit() {
   playerCreditEl.innerText = `${playerCredits} CREDITS`;
 }
 
-function renderPreFlop() {}
-
-function renderPostFlop() {
-  //bet buttons disabled
-  betOneBtnEl.setAttribute("disabled", "");
-  betMaxBtnEl.setAttribute("disabled", "");
-}
-
 function renderPlayerHand() {
+  if (!playerHand.length) return;
+
   playerCardEls.forEach((card, idx) => {
     card.src = playerHand[idx].img;
-    console.log(card);
   });
 }
 
@@ -636,8 +610,6 @@ function render() {
   renderWinCredit();
   renderBetMessage();
   renderPlayerHand();
-  // renderCardClick();
-  // renderHoldSign();
 }
 
 function renderReDeal() {
