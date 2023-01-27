@@ -157,6 +157,7 @@ function deckShuffle() {
 - Additional types of video poker games
 
 </div>
-#### References
+
+### References
 
 Wikipedia: [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
