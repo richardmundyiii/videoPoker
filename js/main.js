@@ -746,7 +746,7 @@ function isFullHouse() {
 }
 
 function isFlush() {
-  const reduceHand = reduceHandSuit();
+  const reducedHand = reduceHandSuit();
   for (const [key, value] of Object.entries(reducedHand)) {
     if (value === 5) {
       return true;
@@ -763,9 +763,22 @@ function isFlush() {
 //   }
 //   return true;
 // }
+function isStraight() {
+  const reduceHand = reduceHandRank();
+  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
+  for (let i = 0; i < sortedHand.lenght; i++) {
+    if (
+      (((sortedHand[i + 1] === sortedHand[i + 1]) === sortedHand[i + 1]) ===
+        sortedHand[i + 1]) ===
+      sortedHand[i + 1]
+    ) {
+      return true;
+    }
+  }
+}
 
 function isThreeOfAKind() {
-  const reduceHand = reduceHandRank();
+  const reducedHand = reduceHandRank();
   for (const [key, value] of Object.entries(reducedHand)) {
     if (value === 3) {
       return true;
@@ -788,15 +801,7 @@ function isJacksOrBetter() {
 
 // // // FIND ANY PAIR FOR FULLHOUSE
 function isPair() {
-  const tempHand = [...playerHand];
-  let reducedHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reducedHand = reduceHandRank();
   for (const [key, value] of Object.entries(reducedHand)) {
     if (value === 2) {
       return true;
