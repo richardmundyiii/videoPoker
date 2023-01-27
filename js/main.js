@@ -418,6 +418,94 @@ const secondDeck = [
   },
 ];
 
+const PAYOUT = {
+  royalFlush: {
+    1: 250,
+    2: 500,
+    3: 750,
+    4: 1000,
+    5: 4000,
+  },
+  straightFlush: {
+    1: 50,
+    2: 100,
+    3: 150,
+    4: 200,
+    5: 250,
+  },
+  fourAcesWKicker: {
+    1: 400,
+    2: 00,
+    3: 1200,
+    4: 1600,
+    5: 2000,
+  },
+  fourTwoOrAce: {
+    1: 160,
+    2: 320,
+    3: 480,
+    4: 640,
+    5: 800,
+  },
+  fourTwoThreeFour: {
+    1: 80,
+    2: 160,
+    3: 240,
+    4: 320,
+    5: 400,
+  },
+  fourOthers: {
+    1: 50,
+    2: 100,
+    3: 150,
+    4: 200,
+    5: 250,
+  },
+  fullHouse: {
+    1: 9,
+    2: 18,
+    3: 27,
+    4: 36,
+    5: 45,
+  },
+  flush: {
+    1: 6,
+    2: 12,
+    3: 18,
+    4: 24,
+    5: 30,
+  },
+  straight: {
+    1: 4,
+    2: 8,
+    3: 12,
+    4: 16,
+    5: 20,
+  },
+  threeOfAKind: {
+    1: 3,
+    2: 6,
+    3: 9,
+    4: 12,
+    5: 15,
+  },
+  jacks: {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+  },
+  zero: {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+  },
+};
+
 /*----- state variables -----*/
 let betSize;
 let playerCredits;
@@ -457,14 +545,11 @@ holdCardEls.addEventListener("click", handleCardClick);
 init();
 
 function init() {
-  hand = [null, null, null, null, null];
   playerHand = [];
   betSize = 0;
   playerCredits = 400;
-  handOver = true;
-  gameOver = false;
   gameStage = "preFlop";
-  playerWin = 0;
+  playerWin = "zero";
 
   render();
 }
@@ -472,10 +557,8 @@ function init() {
 function newHand() {
   hand = [null, null, null, null, null];
   playerCredits;
-  playerWin;
-  betSize;
-  handOver = true;
-  gameOver = false;
+  playerWin = "zero";
+  betSize = 0;
   gameStage = "preFlop";
 
   render();
@@ -484,12 +567,13 @@ function newHand() {
 function finalStage() {
   gameStage = "finish";
   if (playerCredits === 0) return;
-  //determine if hand wins
-  //if winner, display amount won and increase player credit
-  playerWin = 0;
-  //deal button disabled
-  //if bet button pressed, switch to new hand function
-  console.log(gameStage);
+
+  playerWin = getWinner();
+  playerCredits += PAYOUT[playerWin][betSize];
+  betSize = 0;
+  newHand();
+
+  render();
 }
 
 //DECK SHUFFLE
@@ -509,8 +593,8 @@ function deckShuffle() {
 
 //HANDLE FUNCTIONS
 function handleDealClick(evt) {
-  //PREFLOP CLICK
   if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
+    playerCredits = playerCredits - betSize;
     deckShuffle();
 
     playerHand = deck.splice(0, 5);
@@ -522,22 +606,13 @@ function handleDealClick(evt) {
 
 // HANDLE BET SIZE CLICKS
 function handleBetOneClick() {
-  if (betSize < 5 && (gameStage === "preFlop" || gameStage === "finish")) {
-    betSize++;
-    playerCredits--;
-    newHand();
-  } else return;
-
+  if (betSize < 5 && gameStage === "preFlop") betSize++;
   render();
 }
 
 function handleBetMaxClick() {
-  if (betSize < 5 && handOver === true) {
-    betSize = 5;
-    playerCredits = playerCredits - 5;
-    newHand();
-    //increase bet size to 5
-  } else return;
+  if (gameStage === "preFlop" && betSize < 5) betSize = 5;
+  render();
 }
 
 // HANDLE CARD CLICKS FOR HOLD
@@ -558,7 +633,6 @@ function holdCards() {
     if (element.isHold === true) {
       let holdElement = document.getElementById(`card-${idx + 1}`);
       holdElement.style.visibility = "visible";
-      element = deck[5];
     } else return;
 
     render();
@@ -573,21 +647,16 @@ function handleReDeal() {
       }
     }
   }
-  gameStage = "final";
+  gameStage = "finish";
+  finalStage();
   render();
 }
 
 // RENDER FUNCTIONS
 
-function renderWinCredit() {
-  payoutEl.innerText = `WIN ${playerWin}`;
-}
-
-function renderBetMessage() {
+function renderMessages() {
+  payoutEl.innerText = `WIN ${PAYOUT[playerWin][betSize]}`;
   betMessageEl.innerText = `Bet ${betSize}`;
-}
-
-function renderPlayerCredit() {
   playerCreditEl.innerText = `${playerCredits} CREDITS`;
 }
 
@@ -599,24 +668,99 @@ function renderPlayerHand() {
   });
 }
 
-function renderFinalStage() {}
-
-function replaceCards(el) {
-  el = deck[6];
-}
-
 function render() {
-  renderPlayerCredit();
-  renderWinCredit();
-  renderBetMessage();
+  renderMessages();
   renderPlayerHand();
 }
-
-function renderReDeal() {
-  renderPlayerHand();
-}
-
-render();
 
 //FUNCTION WINNING LOGIC
-function getWinner() {}
+function getWinner() {
+  if (isRoyalFlush()) return "royalFlush";
+  isStraightFlush();
+  isFourOfAKind();
+  isThreeOfAKind();
+  isFullHouse();
+  if (isFlush()) return "flush";
+  isStraight();
+  isTwoPair();
+  if (isJacksOrBetter()) return "jacks";
+  return "zero";
+}
+
+function isRoyalFlush() {}
+
+function isStraightFlush() {}
+
+function isFourOfAKind() {
+  const tempHand = [...playerHand];
+  tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+}
+
+function isThreeOfAKind() {
+  const reduceHand = reduceHandRank();
+  let threeOfAKind = false;
+  for (const item in Object.values(reduceHand)) {
+    if (item > 3) threeOfAKind = true;
+  }
+  return threeOfAKind;
+}
+
+function isFullHouse() {}
+
+function isFlush() {
+  const reduceHand = reduceHandSuit();
+  const flush = false;
+  for (const item in Object.values(reduceHand)) {
+    if (item === 5) flush = true;
+  }
+  return flush;
+}
+
+function isStraight() {
+  //Sort low to high
+  //if inx[0] === index[1]+1
+}
+
+function isTwoPair() {}
+
+function isJacksOrBetter() {
+  const reduceHand = reduceHandRank();
+  let jacks = false;
+  for (const item in Object.values(reduceHand)) {
+    if (item > 2) jacks = true;
+  }
+  return jacks;
+}
+
+function reduceHandSuit() {
+  let tempHand = [...playerHand];
+  const reducedHand = tempHand.reduce((acc, curVal) => {
+    if (curVal in acc) {
+      acc[curVal.suit]++;
+    } else {
+      acc[curVal.suit] = 1;
+    }
+    return acc;
+  }, {});
+  return reducedHand;
+}
+
+function reduceHandRank() {
+  let tempHand = [...playerHand];
+  const reducedHand = tempHand.reduce((acc, curVal) => {
+    if (curVal in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  return reducedHand;
+}
