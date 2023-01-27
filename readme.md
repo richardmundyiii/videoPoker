@@ -80,6 +80,9 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
    - If a player has a winning hand the winning hand name and payout will illumiinate at the top of the screen.
    - The amount won will be displayed at the bottom left of the screen, just above help.
    - The players total credits will increase by the amount won.
+   </div>
+
+<div>
 
 ## Winning Hand Odds & Payouts
 
