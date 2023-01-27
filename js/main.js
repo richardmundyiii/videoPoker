@@ -587,6 +587,7 @@ function holdCards() {
   });
 }
 
+//HANDLE RE-DEAL
 function handleReDeal() {
   if (gameStage === "postFlop") {
     for (let i = 0; i < playerHand.length; i++) {
@@ -631,6 +632,8 @@ function render() {
   renderMessages();
   renderPlayerHand();
 }
+
+//GET WINNER FUNCTIONS
 
 function getWinner() {
   if (isRoyalFlush()) return "royalFlush";
@@ -712,7 +715,7 @@ function isFlush() {
 function isStraight() {
   const reduceHand = reduceHandRank();
   const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
-  for (let i = 0; i < sortedHand.lenght; i++) {
+  for (let i = 0; i < sortedHand.length; i++) {
     if (
       (((sortedHand[i] === sortedHand[i + 1]) === sortedHand[i + 2]) ===
         sortedHand[i + 3]) ===
@@ -723,7 +726,6 @@ function isStraight() {
         sortedHand[3] === 4 &&
         sortedHand[4] === 5)
     ) {
-      console.log(sortedHand);
       return true;
     }
   }
@@ -773,7 +775,7 @@ function isPair() {
   }
 }
 
-// Reduce Hank by Rank or Suit Functions
+// REDUCE HAND BY RANK OR SUIT FUNCTIONS
 function reduceHandRank() {
   const tempHand = [...playerHand];
   let reduceHand = tempHand.reduce((acc, curVal) => {
