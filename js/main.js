@@ -1,4 +1,5 @@
 // /*----- constants -----*/
+
 const secondDeck = [
   {
     card: "2s",
@@ -455,6 +456,7 @@ const PAYOUT = {
 };
 
 /*----- state variables -----*/
+
 let betSize;
 let playerCredits;
 let handOver;
@@ -466,6 +468,7 @@ let playerWin;
 let lastHand;
 
 /*----- cached elements  -----*/
+
 payoutEl = document.getElementById("pay-message");
 betMessageEl = document.getElementById("bet-message");
 playerCreditEl = document.getElementById("credit-message");
@@ -477,6 +480,7 @@ holdCardEls = document.querySelector(".cards-row");
 holdEls = document.querySelector(".hold-row");
 
 /*----- event listeners -----*/
+
 betOneBtnEl.addEventListener("click", handleBetOneClick);
 betMaxBtnEl.addEventListener("click", handleBetMaxClick);
 dealBtnEl.addEventListener("click", function () {
@@ -490,7 +494,8 @@ holdCardEls.addEventListener("click", handleCardClick);
 
 /*----- functions -----*/
 
-//GAME OPERATIONS FUNCTIONS
+//GAME OPERATIONAL FUNCTIONS
+
 init();
 
 function init() {
@@ -538,6 +543,7 @@ function deckShuffle() {
 }
 
 //HANDLE FUNCTIONS
+
 function handleDealClick(evt) {
   if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
     playerCredits = playerCredits - betSize;
@@ -551,6 +557,7 @@ function handleDealClick(evt) {
 }
 
 // HANDLE BET SIZE CLICKS
+
 function handleBetOneClick() {
   if (betSize < 5 && gameStage === "preFlop") betSize++;
   render();
@@ -562,9 +569,9 @@ function handleBetMaxClick() {
 }
 
 // HANDLE CARD CLICKS FOR HOLD
+
 function handleCardClick(evt) {
   let cardIdx = evt.target.alt - 1;
-  // GUARD
   if (evt.target.tagName !== "IMG");
   if (gameStage === "postFlop") {
     playerHand[cardIdx].isHold = true;
@@ -588,6 +595,7 @@ function holdCards() {
 }
 
 //HANDLE RE-DEAL
+
 function handleReDeal() {
   if (gameStage === "postFlop") {
     for (let i = 0; i < playerHand.length; i++) {
@@ -651,11 +659,9 @@ function getWinner() {
 }
 
 function isRoyalFlush() {
-  const reduceHand = reduceHandRank();
-  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
-  if (sortedHand.length - 1 === 14 && isFlush() && isStraight()) {
-    return true;
-  }
+  const tempHand = [...playerHand];
+  tempHand.sort((a, b) => a.rank - b.rank);
+  return isFlush() && isStraight() && tempHand[0].rank === 10;
 }
 
 function isStraightFlush() {
@@ -713,22 +719,14 @@ function isFlush() {
 }
 
 function isStraight() {
-  const reduceHand = reduceHandRank();
-  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
-  for (let i = 0; i < sortedHand.length; i++) {
-    if (
-      (((sortedHand[i] === sortedHand[i + 1]) === sortedHand[i + 2]) ===
-        sortedHand[i + 3]) ===
-        sortedHand[i + 4] ||
-      (sortedHand[0] === 14 &&
-        sortedHand[1] === 2 &&
-        sortedHand[2] === 3 &&
-        sortedHand[3] === 4 &&
-        sortedHand[4] === 5)
-    ) {
-      return true;
-    }
+  const tempHand = [...playerHand];
+  tempHand.sort((a, b) => a.rank - b.rank);
+  let prevRank = tempHand[0].rank === 14 ? 1 : tempHand[0].rank;
+  for (let i = 1; i < 5; i++) {
+    if (tempHand[i].rank - 1 !== prevRank) return false;
+    prevRank = tempHand[i].rank;
   }
+  return true;
 }
 
 function isThreeOfAKind() {
