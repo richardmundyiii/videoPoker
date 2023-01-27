@@ -101,7 +101,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 | 2 pairs           | 1 : 1   |
 | Jacks or Better   | 1 : 1   |
 
-</td></td>
+</td><td>
 
 | Hand            | 1   | 2   | 3    | 4    | 5    |
 | --------------- | --- | --- | ---- | ---- | ---- |
