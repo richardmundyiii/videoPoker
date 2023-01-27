@@ -687,9 +687,16 @@ function getWinner() {
   return "zero";
 }
 
-function isRoyalFlush() {}
+function isRoyalFlush() {
+  //////// NEEDS IF A, K, Q, J, 10
+  let royalFlush = false;
+  if (isFlush() && isStraight()) return royalFlush;
+}
 
-function isStraightFlush() {}
+function isStraightFlush() {
+  let straightFlush = false;
+  if (isFlush() && isStraight()) return straightFlush;
+}
 
 function isFourAcesWKicker() {
   const reduceHand = reduceHandRank();
@@ -704,7 +711,7 @@ function isRegularFourOfAKind() {
   const reduceHand = reduceHandRank();
   let fourOfAKind = false;
   for (const item in Object.values(reduceHand)) {
-    if (item >= 4) fourOfAKind = true;
+    if (item === 4) fourOfAKind = true;
   }
   return fourOfAKind;
 }
@@ -713,12 +720,18 @@ function isThreeOfAKind() {
   const reduceHand = reduceHandRank();
   let threeOfAKind = false;
   for (const item in Object.values(reduceHand)) {
-    if (item > 3) threeOfAKind = true;
+    if (item === 3) threeOfAKind = true;
   }
   return threeOfAKind;
 }
 
-function isFullHouse() {}
+function isFullHouse() {
+  let sameRank = {};
+  for (const card in playerHand) {
+    sameRank[card.rank] ? sameRank[card.rank] + 1 : 1;
+    console.log(sameRank);
+  }
+}
 
 function isFlush() {
   const reduceHand = reduceHandSuit();
