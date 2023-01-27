@@ -26,7 +26,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 ## :camera_flash: Screenshots
 
-![]('images/screen1.png)
+![](images/screen1.png)
 
 ### User Interface
 
