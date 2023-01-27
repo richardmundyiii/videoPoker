@@ -566,9 +566,10 @@ function newHand() {
 function finalStage() {
   gameStage = "finish";
   if (playerCredits === 0) return;
-  playerWin;
+  playerWin = getWinner();
   playerCredits += PAYOUT[playerWin][betSize];
   lastHand = PAYOUT[playerWin][betSize];
+  renderReset();
   newHand();
   render();
 }
@@ -654,7 +655,11 @@ function handleReDeal() {
 // RENDER FUNCTIONS
 
 function renderMessages() {
-  payoutEl.innerText = `WIN ${PAYOUT[playerWin][betSize]}`;
+  if (lastHand === undefined) {
+    payoutEl.innerText = "";
+  } else {
+    payoutEl.innerText = `WIN ${lastHand}`;
+  }
   betMessageEl.innerText = `Bet ${betSize}`;
   playerCreditEl.innerText = `${playerCredits} CREDITS`;
 }
@@ -799,17 +804,26 @@ function render() {
 // }
 
 function getWinner() {
+  if (isRoyalFlush()) return "royalFlush";
   if (isStraightFlush()) return "straightFlush";
   if (isFourAces()) return "fourAcesWKicker";
   if (isFourLow()) return "fourTwoOrAce";
   if (isFourOther()) return "fourOthers";
+  if (isFullHouse()) return "fullHouse";
   if (isFlush()) return "flush";
   if (isThreeOfAKind()) return "threeOfAKind";
+  if (isTwoPair()) return "twoPair";
   if (isJacksOrBetter()) return "jacks";
   return "zero";
 }
 
-function isStraightFlush() {}
+function isRoyalFlush() {}
+
+function isStraightFlush() {
+  if (isFlush()) {
+    console.log("win");
+  }
+}
 
 function isFourAces() {
   const tempHand = [...playerHand];
@@ -868,7 +882,28 @@ function isFourOther() {
   }
 }
 
-function isFlush() {}
+function isFullHouse() {
+  if (isPair() && isThreeOfAKind()) {
+    return true;
+  }
+}
+
+function isFlush() {
+  const tempHand = [...playerHand];
+  let reducedHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.suit in acc) {
+      acc[curVal.suit]++;
+    } else {
+      acc[curVal.suit] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reducedHand)) {
+    if (value === 5) {
+      return true;
+    }
+  }
+}
 
 function isThreeOfAKind() {
   const tempHand = [...playerHand];
@@ -881,12 +916,13 @@ function isThreeOfAKind() {
     return acc;
   }, {});
   for (const [key, value] of Object.entries(reducedHand)) {
-    console.log(key, value);
     if (value === 3) {
       return true;
     }
   }
 }
+
+function isTwoPair() {}
 
 function isJacksOrBetter() {
   const tempHand = [...playerHand];
@@ -901,9 +937,26 @@ function isJacksOrBetter() {
   for (const [key, value] of Object.entries(reduceHand)) {
     if (key > 10) {
       if (value === 2) {
-        playerWin = "jacks";
         return true;
       }
+    }
+  }
+}
+
+// // // FIND ANY PAIR FOR FULLHOUSE
+function isPair() {
+  const tempHand = [...playerHand];
+  let reducedHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reducedHand)) {
+    if (value === 2) {
+      return true;
     }
   }
 }
