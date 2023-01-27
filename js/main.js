@@ -515,6 +515,7 @@ let deck;
 let gameStage;
 let playerHand;
 let playerWin;
+let lastHand;
 
 /*----- cached elements  -----*/
 payoutEl = document.getElementById("pay-message");
@@ -550,7 +551,6 @@ function init() {
   playerCredits = 400;
   gameStage = "preFlop";
   playerWin = "zero";
-
   render();
 }
 
@@ -560,19 +560,16 @@ function newHand() {
   playerWin = "zero";
   betSize = 0;
   gameStage = "preFlop";
-
   render();
 }
 
 function finalStage() {
   gameStage = "finish";
   if (playerCredits === 0) return;
-
-  playerWin = getWinner();
+  playerWin;
   playerCredits += PAYOUT[playerWin][betSize];
-  betSize = 0;
+  lastHand = PAYOUT[playerWin][betSize];
   newHand();
-
   render();
 }
 
@@ -630,10 +627,12 @@ function handleCardClick(evt) {
 
 function holdCards() {
   playerHand.forEach((element, idx) => {
+    let holdElement = document.getElementById(`card-${idx + 1}`);
     if (element.isHold === true) {
-      let holdElement = document.getElementById(`card-${idx + 1}`);
       holdElement.style.visibility = "visible";
-    } else return;
+    } else if (element.isHold === false) {
+      holdElement.style.visibility = "hidden";
+    }
 
     render();
   });
@@ -668,127 +667,243 @@ function renderPlayerHand() {
   });
 }
 
+function renderReset() {
+  playerHand.forEach((element) => {
+    element.isHold = false;
+    render();
+  });
+}
+
 function render() {
   renderMessages();
   renderPlayerHand();
 }
 
 //FUNCTION WINNING LOGIC
+// function getWinner() {
+//   if (isRoyalFlush()) return "royalFlush";
+//   if (isStraightFlush()) return "straightFlush";
+//   if (isRegularFourOfAKind()) return "fourOthers";
+//   if (isThreeOfAKind()) return "threeOfAKind";
+//   if (isFullHouse()) return "fullHouse";
+//   if (isFlush()) return "flush";
+//   if (isStraight()) return "straight";
+//   if (isTwoPair()) return "twoPair";
+//   if (isJacksOrBetter()) return "jacks";
+//   return "zero";
+// }
+
+// function isRoyalFlush() {
+//   //////// NEEDS IF A, K, Q, J, 10
+//   let royalFlush = false;
+//   if (isFlush() && isStraight()) return royalFlush;
+// }
+
+// function isStraightFlush() {
+//   let straightFlush = false;
+//   if (isFlush() && isStraight()) return straightFlush;
+// }
+
+// function isFourAcesWKicker() {
+//   const reduceHand = reduceHandRank();
+//   const fourAces = false;
+//   for (const item in Object.values(reduceHand)) {
+//     if (item >= 4 && item) {
+//     }
+//   }
+// }
+
+// function isRegularFourOfAKind() {
+//   const reduceHand = reduceHandRank();
+//   let fourOfAKind = false;
+//   for (const item in Object.values(reduceHand)) {
+//     if (item === 4) fourOfAKind = true;
+//   }
+//   return fourOfAKind;
+// }
+
+// function isThreeOfAKind() {
+//   const reduceHand = reduceHandRank();
+//   let threeOfAKind = false;
+//   for (const item in Object.values(reduceHand)) {
+//     if (item === 3) threeOfAKind = true;
+//   }
+//   return threeOfAKind;
+// }
+
+// function isFullHouse() {
+//   let sameRank = {};
+//   for (const card in playerHand) {
+//     sameRank[card.rank] ? sameRank[card.rank] + 1 : 1;
+//   }
+// }
+
+// function isFlush() {
+//   const reduceHand = reduceHandSuit();
+//   const flush = false;
+//   for (const item in Object.values(reduceHand)) {
+//     if (item === 5) flush = true;
+//   }
+//   return flush;
+// }
+
+// function isStraight() {
+//   tempHand = [...playerHand];
+//   let sortHand = tempHand.sort((a, b) =>
+//     a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0
+//   );
+//   if (
+//     sortHand[0].rank + 1 === sortHand[1].rank &&
+//     sortHand[1].rank + 1 === sortHand[2].rank &&
+//     sortHand[2] + 1 === sortHand[3] &&
+//     sortHand[3] + 1 === sortHand[4]
+//   )
+//     return straight;
+// }
+
+// function isTwoPair() {}
+
+// function isJacksOrBetter() {
+//   const reduceHand = reduceHandRank();
+//   let jacks = false;
+//   for (const item in Object.values(reduceHand)) {
+//     if (item === 2) jacks = true;
+//   }
+//   return jacks;
+// }
+
+// function reduceHandSuit() {
+//   let tempHand = [...playerHand];
+//   const reducedHand = tempHand.reduce((acc, curVal) => {
+//     if (curVal in acc) {
+//       acc[curVal.suit]++;
+//     } else {
+//       acc[curVal.suit] = 1;
+//     }
+//     return acc;
+//   }, {});
+//   return reducedHand;
+// }
+
+// function reduceHandRank() {
+//   let tempHand = [...playerHand];
+//   const reducedHand = tempHand.reduce((acc, curVal) => {
+//     if (curVal in acc) {
+//       acc[curVal.rank]++;
+//     } else {
+//       acc[curVal.rank] = 1;
+//     }
+//     return acc;
+//   }, {});
+//   return reducedHand;
+// }
+
 function getWinner() {
-  if (isRoyalFlush()) return "royalFlush";
-  isStraightFlush();
-  if (isRegularFourOfAKind()) return "fourOthers";
-  if (isThreeOfAKind()) return "threeOfAKind";
-  isFullHouse();
+  if (isStraightFlush()) return "straightFlush";
+  if (isFourAces()) return "fourAcesWKicker";
+  if (isFourLow()) return "fourTwoOrAce";
+  if (isFourOther()) return "fourOthers";
   if (isFlush()) return "flush";
-  if (isStraight()) return "straight";
-  isTwoPair();
+  if (isThreeOfAKind()) return "threeOfAKind";
   if (isJacksOrBetter()) return "jacks";
   return "zero";
 }
 
-function isRoyalFlush() {
-  //////// NEEDS IF A, K, Q, J, 10
-  let royalFlush = false;
-  if (isFlush() && isStraight()) return royalFlush;
-}
+function isStraightFlush() {}
 
-function isStraightFlush() {
-  let straightFlush = false;
-  if (isFlush() && isStraight()) return straightFlush;
-}
-
-function isFourAcesWKicker() {
-  const reduceHand = reduceHandRank();
-  const fourAces = false;
-  for (const item in Object.values(reduceHand)) {
-    if (item >= 4 && item) {
-    }
-  }
-}
-
-function isRegularFourOfAKind() {
-  const reduceHand = reduceHandRank();
-  let fourOfAKind = false;
-  for (const item in Object.values(reduceHand)) {
-    if (item === 4) fourOfAKind = true;
-  }
-  return fourOfAKind;
-}
-
-function isThreeOfAKind() {
-  const reduceHand = reduceHandRank();
-  let threeOfAKind = false;
-  for (const item in Object.values(reduceHand)) {
-    if (item === 3) threeOfAKind = true;
-  }
-  return threeOfAKind;
-}
-
-function isFullHouse() {
-  let sameRank = {};
-  for (const card in playerHand) {
-    sameRank[card.rank] ? sameRank[card.rank] + 1 : 1;
-    console.log(sameRank);
-  }
-}
-
-function isFlush() {
-  const reduceHand = reduceHandSuit();
-  const flush = false;
-  for (const item in Object.values(reduceHand)) {
-    if (item === 5) flush = true;
-  }
-  return flush;
-}
-
-function isStraight() {
-  tempHand = [...playerHand];
-  let sortHand = tempHand.sort((a, b) =>
-    a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0
-  );
-  if (
-    sortHand[0].rank + 1 === sortHand[1].rank &&
-    sortHand[1].rank + 1 === sortHand[2].rank &&
-    sortHand[2] + 1 === sortHand[3] &&
-    sortHand[3] + 1 === sortHand[4]
-  )
-    return straight;
-}
-
-function isTwoPair() {}
-
-function isJacksOrBetter() {
-  const reduceHand = reduceHandRank();
-  let jacks = false;
-  for (const item in Object.values(reduceHand)) {
-    if (item > 2) jacks = true;
-  }
-  return jacks;
-}
-
-function reduceHandSuit() {
-  let tempHand = [...playerHand];
-  const reducedHand = tempHand.reduce((acc, curVal) => {
-    if (curVal in acc) {
-      acc[curVal.suit]++;
-    } else {
-      acc[curVal.suit] = 1;
-    }
-    return acc;
-  }, {});
-  return reducedHand;
-}
-
-function reduceHandRank() {
-  let tempHand = [...playerHand];
-  const reducedHand = tempHand.reduce((acc, curVal) => {
-    if (curVal in acc) {
+function isFourAces() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
       acc[curVal.rank]++;
     } else {
       acc[curVal.rank] = 1;
     }
     return acc;
   }, {});
-  return reducedHand;
+  for (const [key, value] of Object.entries(reduceHand)) {
+    if (key === 14) {
+      if (value === 4) {
+        return true;
+      }
+    }
+  }
+}
+
+function isFourLow() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reduceHand)) {
+    if (key > 0 && key < 5) {
+      if (value === 4) {
+        return true;
+      }
+    }
+  }
+}
+
+function isFourOther() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reduceHand)) {
+    if (key > 4) {
+      if (value === 4) {
+        return true;
+      }
+    }
+  }
+}
+
+function isFlush() {}
+
+function isThreeOfAKind() {
+  const tempHand = [...playerHand];
+  let reducedHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reducedHand)) {
+    console.log(key, value);
+    if (value === 3) {
+      return true;
+    }
+  }
+}
+
+function isJacksOrBetter() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  for (const [key, value] of Object.entries(reduceHand)) {
+    if (key > 10) {
+      if (value === 2) {
+        playerWin = "jacks";
+        return true;
+      }
+    }
+  }
 }
