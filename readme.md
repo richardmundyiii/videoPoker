@@ -12,17 +12,15 @@
 
 ##### Richard Mundy
 
-[![LinkedIn Badge](https://img.shields.io/badge/-@profpan396-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/richardmundyiii/)
+[![LinkedIn Badge](https://img.shields.io/badge/-@richardmundyiii-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/richardmundyiii/)
 
 ## :pencil: Description
 
-Meet Your Classmates is a hub where students can get to know and relate to their peers via completion of short 3-question
-mini-surveys. By learning about others' backgrounds, previous experiences, and
-interests, an atmosphere of community is created that is conducive to higher
-levels of learning and success.
+:spades: :diamonds: :clubs: :hearts:
+
+Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas, this fun and exciting game of video poker is at your fingertips. Play from 1 to 5 credits and take your chance at hitting it big with a Royal Flush (pays 4,000 credits with max bet). :money_mouth_face:
 
   </div>
-# Video Poker
 
 ### User Interface
 
