@@ -433,26 +433,19 @@ const PAYOUT = {
     4: 200,
     5: 250,
   },
-  fourAcesWKicker: {
+  fourAces: {
     1: 400,
     2: 00,
     3: 1200,
     4: 1600,
     5: 2000,
   },
-  fourTwoOrAce: {
+  fourLow: {
     1: 160,
     2: 320,
     3: 480,
     4: 640,
     5: 800,
-  },
-  fourTwoThreeFour: {
-    1: 80,
-    2: 160,
-    3: 240,
-    4: 320,
-    5: 400,
   },
   fourOthers: {
     1: 50,
@@ -488,6 +481,13 @@ const PAYOUT = {
     3: 9,
     4: 12,
     5: 15,
+  },
+  twoPair: {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
   },
   jacks: {
     1: 1,
@@ -687,22 +687,29 @@ function render() {
 function getWinner() {
   if (isRoyalFlush()) return "royalFlush";
   if (isStraightFlush()) return "straightFlush";
-  if (isFourAces()) return "fourAcesWKicker";
-  if (isFourLow()) return "fourTwoOrAce";
+  if (isFourAces()) return "fourAces";
+  if (isFourLow()) return "fourLow";
   if (isFourOther()) return "fourOthers";
   if (isFullHouse()) return "fullHouse";
   if (isFlush()) return "flush";
+  if (isStraight()) return "straight";
   if (isThreeOfAKind()) return "threeOfAKind";
   if (isTwoPair()) return "twoPair";
   if (isJacksOrBetter()) return "jacks";
   return "zero";
 }
 
-function isRoyalFlush() {}
+function isRoyalFlush() {
+  const reduceHand = reduceHandRank();
+  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
+  if (sortedHand.length - 1 === 14 && isFlush() && isStraight()) {
+    return true;
+  }
+}
 
 function isStraightFlush() {
-  if (isFlush()) {
-    console.log("win");
+  if (isFlush() && isStraight()) {
+    return true;
   }
 }
 
@@ -746,23 +753,14 @@ function isFullHouse() {
 }
 
 function isFlush() {
-  const reducedHand = reduceHandSuit();
-  for (const [key, value] of Object.entries(reducedHand)) {
+  const reduceHand = reduceHandSuit();
+  for (const [key, value] of Object.entries(reduceHand)) {
     if (value === 5) {
       return true;
     }
   }
 }
 
-// function isStraight() {
-//   var lowest = getLowest();
-//   for (var i = 1; i < 5; i++) {
-//     if (occurrencesOf(lowest + i) != 1) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }
 function isStraight() {
   const reduceHand = reduceHandRank();
   const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
@@ -770,23 +768,42 @@ function isStraight() {
     if (
       (((sortedHand[i + 1] === sortedHand[i + 1]) === sortedHand[i + 1]) ===
         sortedHand[i + 1]) ===
-      sortedHand[i + 1]
+        sortedHand[i + 1] ||
+      (sortedHand[0] === 14 &&
+        sortedHand[1] === 2 &&
+        sortedHand[2] === 3 &&
+        sortedHand[3] === 4 &&
+        sortedHand[4] === 5)
     ) {
+      console.log(sortedHand);
       return true;
     }
   }
 }
 
 function isThreeOfAKind() {
-  const reducedHand = reduceHandRank();
-  for (const [key, value] of Object.entries(reducedHand)) {
+  const reduceHand = reduceHandRank();
+  for (const [key, value] of Object.entries(reduceHand)) {
     if (value === 3) {
       return true;
     }
   }
 }
 
-function isTwoPair() {}
+function isTwoPair() {
+  const reduceHand = reduceHandRank();
+  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
+  for (let i = 0; i < sortedHand.lenght; i++) {
+    if (sortedHand[i] === 2) {
+      for (let j = sortedHand[i]; j < sortedHand.lenght; j++) {
+        if (sortedHand[j] === 2) {
+          return true;
+        }
+      }
+    }
+    console.log(sortedHand[i]);
+  }
+}
 
 function isJacksOrBetter() {
   const reduceHand = reduceHandRank();
@@ -801,8 +818,8 @@ function isJacksOrBetter() {
 
 // // // FIND ANY PAIR FOR FULLHOUSE
 function isPair() {
-  const reducedHand = reduceHandRank();
-  for (const [key, value] of Object.entries(reducedHand)) {
+  const reduceHand = reduceHandRank();
+  for (const [key, value] of Object.entries(reduceHand)) {
     if (value === 2) {
       return true;
     }
