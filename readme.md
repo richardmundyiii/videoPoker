@@ -20,8 +20,6 @@
 
 Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas, this fun and exciting game of video poker is at your fingertips. Play from 1 to 5 credits and take your chance at hitting it big with a Royal Flush (pays 4,000 credits with max bet). :money_mouth_face:
 
-  </div>
-
     ## :camera_flash: Screenshots
 
 |    Description     | Screenshot |
@@ -135,3 +133,5 @@ function deckShuffle() {
 #### Refernces
 
 Wikipedia: [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
+
+</div>
