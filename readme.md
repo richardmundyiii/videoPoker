@@ -44,7 +44,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 <div>
 
-### User Interface
+## User Interface
 
 1. When the page loads:
 
@@ -63,7 +63,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 <div>
 
-### The Game
+## The Game
 
 1. Player will have 400 credits.
 2. Once the player has selected their bet and has pressed the 'DEAL' button, the game will begin.
@@ -78,7 +78,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
    - The amount won will be displayed at the bottom left of the screen, just above help.
    - The players total credits will increase by the amount won.
 
-### Winning Hand Odds
+## Winning Hand Odds
 
 | Hand                    | Odds    |
 | ----------------------- | ------- |
@@ -96,7 +96,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 | 2 pairs                 | 1 : 1   |
 | Jacks or Better         | 1 : 1   |
 
-### Payouts Per Credit
+## Payouts Per Credit
 
 | Hand                    | 1   | 2   | 3    | 4    | 5    |
 | ----------------------- | --- | --- | ---- | ---- | ---- |
@@ -118,7 +118,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 <div>
 
-### About the Shuffle
+## About the Shuffle
 
 There are a lot of different ways to shuffle, or not shuffle, a deck of cards to generate a random order. The simplest way to "shuffle" a deck would be to not shuffle at all. Meaning just randomly pick a card from the deck and place it in its new array. Pros for this would be very minimal coding and easy to read, even for beginner javascript learners, and in fact does randomly select a card from the deck.
 
