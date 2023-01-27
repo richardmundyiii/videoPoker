@@ -707,15 +707,7 @@ function isStraightFlush() {
 }
 
 function isFourAces() {
-  const tempHand = [...playerHand];
-  let reduceHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandRank();
   for (const [key, value] of Object.entries(reduceHand)) {
     if (key === 14) {
       if (value === 4) {
@@ -726,15 +718,7 @@ function isFourAces() {
 }
 
 function isFourLow() {
-  const tempHand = [...playerHand];
-  let reduceHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandRank();
   for (const [key, value] of Object.entries(reduceHand)) {
     if (key > 0 && key < 5) {
       if (value === 4) {
@@ -745,15 +729,7 @@ function isFourLow() {
 }
 
 function isFourOther() {
-  const tempHand = [...playerHand];
-  let reduceHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandRank();
   for (const [key, value] of Object.entries(reduceHand)) {
     if (key > 4) {
       if (value === 4) {
@@ -770,15 +746,7 @@ function isFullHouse() {
 }
 
 function isFlush() {
-  const tempHand = [...playerHand];
-  let reducedHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.suit in acc) {
-      acc[curVal.suit]++;
-    } else {
-      acc[curVal.suit] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandSuit();
   for (const [key, value] of Object.entries(reducedHand)) {
     if (value === 5) {
       return true;
@@ -786,16 +754,18 @@ function isFlush() {
   }
 }
 
+// function isStraight() {
+//   var lowest = getLowest();
+//   for (var i = 1; i < 5; i++) {
+//     if (occurrencesOf(lowest + i) != 1) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
 function isThreeOfAKind() {
-  const tempHand = [...playerHand];
-  let reducedHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandRank();
   for (const [key, value] of Object.entries(reducedHand)) {
     if (value === 3) {
       return true;
@@ -806,15 +776,7 @@ function isThreeOfAKind() {
 function isTwoPair() {}
 
 function isJacksOrBetter() {
-  const tempHand = [...playerHand];
-  let reduceHand = tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
-    }
-    return acc;
-  }, {});
+  const reduceHand = reduceHandRank();
   for (const [key, value] of Object.entries(reduceHand)) {
     if (key > 10) {
       if (value === 2) {
@@ -840,4 +802,31 @@ function isPair() {
       return true;
     }
   }
+}
+
+// Reduce Hank by Rank or Suit Functions
+function reduceHandRank() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.rank in acc) {
+      acc[curVal.rank]++;
+    } else {
+      acc[curVal.rank] = 1;
+    }
+    return acc;
+  }, {});
+  return reduceHand;
+}
+
+function reduceHandSuit() {
+  const tempHand = [...playerHand];
+  let reduceHand = tempHand.reduce((acc, curVal) => {
+    if (curVal.suit in acc) {
+      acc[curVal.suit]++;
+    } else {
+      acc[curVal.suit] = 1;
+    }
+    return acc;
+  }, {});
+  return reduceHand;
 }
