@@ -766,9 +766,9 @@ function isStraight() {
   const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
   for (let i = 0; i < sortedHand.lenght; i++) {
     if (
-      (((sortedHand[i + 1] === sortedHand[i + 1]) === sortedHand[i + 1]) ===
-        sortedHand[i + 1]) ===
-        sortedHand[i + 1] ||
+      (((sortedHand[i] === sortedHand[i + 1]) === sortedHand[i + 2]) ===
+        sortedHand[i + 3]) ===
+        sortedHand[i + 4] ||
       (sortedHand[0] === 14 &&
         sortedHand[1] === 2 &&
         sortedHand[2] === 3 &&
@@ -792,16 +792,15 @@ function isThreeOfAKind() {
 
 function isTwoPair() {
   const reduceHand = reduceHandRank();
-  const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
-  for (let i = 0; i < sortedHand.lenght; i++) {
-    if (sortedHand[i] === 2) {
-      for (let j = sortedHand[i]; j < sortedHand.lenght; j++) {
-        if (sortedHand[j] === 2) {
-          return true;
-        }
+  // const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
+  for (const [key, value] of Object.entries(reduceHand)) {
+    let pairs = 0;
+    if (value === 2) {
+      pairs++;
+      if (pairs === 2) {
+        return true;
       }
     }
-    console.log(sortedHand[i]);
   }
 }
 
