@@ -5,7 +5,6 @@ const secondDeck = [
     rank: 2,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r02.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -13,7 +12,6 @@ const secondDeck = [
     rank: 3,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r03.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -21,7 +19,6 @@ const secondDeck = [
     rank: 4,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r04.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -29,7 +26,6 @@ const secondDeck = [
     rank: 5,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r05.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -37,7 +33,6 @@ const secondDeck = [
     rank: 6,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r06.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -45,7 +40,6 @@ const secondDeck = [
     rank: 7,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r07.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -53,7 +47,6 @@ const secondDeck = [
     rank: 8,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r08.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -61,7 +54,6 @@ const secondDeck = [
     rank: 9,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r09.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -69,7 +61,6 @@ const secondDeck = [
     rank: 10,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-r10.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -77,7 +68,6 @@ const secondDeck = [
     rank: 11,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-J.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -85,7 +75,6 @@ const secondDeck = [
     rank: 12,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-Q.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -93,7 +82,6 @@ const secondDeck = [
     rank: 13,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-K.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -101,7 +89,6 @@ const secondDeck = [
     rank: 14,
     suit: "spades",
     img: "./css/card-library/images/spades/spades-A.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -109,7 +96,6 @@ const secondDeck = [
     rank: 2,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r02.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -117,7 +103,6 @@ const secondDeck = [
     rank: 3,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r03.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -125,7 +110,6 @@ const secondDeck = [
     rank: 4,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r04.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -133,7 +117,6 @@ const secondDeck = [
     rank: 5,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r05.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -141,7 +124,6 @@ const secondDeck = [
     rank: 6,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r06.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -149,7 +131,6 @@ const secondDeck = [
     rank: 7,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r07.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -157,7 +138,6 @@ const secondDeck = [
     rank: 8,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r08.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -165,7 +145,6 @@ const secondDeck = [
     rank: 9,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r09.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -173,7 +152,6 @@ const secondDeck = [
     rank: 10,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-r10.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -181,7 +159,6 @@ const secondDeck = [
     rank: 11,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-J.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -189,7 +166,6 @@ const secondDeck = [
     rank: 12,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-Q.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -197,7 +173,6 @@ const secondDeck = [
     rank: 13,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-K.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -205,7 +180,6 @@ const secondDeck = [
     rank: 14,
     suit: "diamonds",
     img: "./css/card-library/images/diamonds/diamonds-A.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -213,7 +187,6 @@ const secondDeck = [
     rank: 2,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r02.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -221,7 +194,6 @@ const secondDeck = [
     rank: 3,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r03.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -229,7 +201,6 @@ const secondDeck = [
     rank: 4,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r04.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -237,7 +208,6 @@ const secondDeck = [
     rank: 5,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r05.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -245,7 +215,6 @@ const secondDeck = [
     rank: 6,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r06.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -253,7 +222,6 @@ const secondDeck = [
     rank: 7,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r07.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -261,7 +229,6 @@ const secondDeck = [
     rank: 8,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r08.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -269,7 +236,6 @@ const secondDeck = [
     rank: 9,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r09.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -277,7 +243,6 @@ const secondDeck = [
     rank: 10,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-r10.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -285,7 +250,6 @@ const secondDeck = [
     rank: 11,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-J.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -293,7 +257,6 @@ const secondDeck = [
     rank: 12,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-Q.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -301,7 +264,6 @@ const secondDeck = [
     rank: 13,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-K.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -309,7 +271,6 @@ const secondDeck = [
     rank: 14,
     suit: "clubs",
     img: "./css/card-library/images/clubs/clubs-A.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -317,7 +278,6 @@ const secondDeck = [
     rank: 2,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r02.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -325,7 +285,6 @@ const secondDeck = [
     rank: 3,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r03.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -333,7 +292,6 @@ const secondDeck = [
     rank: 4,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r04.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -341,7 +299,6 @@ const secondDeck = [
     rank: 5,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r05.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -349,7 +306,6 @@ const secondDeck = [
     rank: 6,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r06.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -357,7 +313,6 @@ const secondDeck = [
     rank: 7,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r07.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -365,7 +320,6 @@ const secondDeck = [
     rank: 8,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r08.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -373,7 +327,6 @@ const secondDeck = [
     rank: 9,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r09.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -381,7 +334,6 @@ const secondDeck = [
     rank: 10,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-r10.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -389,7 +341,6 @@ const secondDeck = [
     rank: 11,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-J.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -397,7 +348,6 @@ const secondDeck = [
     rank: 12,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-Q.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -405,7 +355,6 @@ const secondDeck = [
     rank: 13,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-K.svg",
-    isShowing: true,
     isHold: false,
   },
   {
@@ -413,7 +362,6 @@ const secondDeck = [
     rank: 14,
     suit: "hearts",
     img: "./css/card-library/images/hearts/hearts-A.svg",
-    isShowing: true,
     isHold: false,
   },
 ];
