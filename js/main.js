@@ -742,15 +742,14 @@ function isThreeOfAKind() {
 
 function isTwoPair() {
   const reduceHand = reduceHandRank();
-  // const sortedHand = Object.fromEntries(Object.entries(reduceHand).sort());
+  let pair = 0;
   for (const [key, value] of Object.entries(reduceHand)) {
-    let pairs = 0;
     if (value === 2) {
-      pairs++;
-      if (pairs === 2) {
-        return true;
-      }
+      pair++;
     }
+  }
+  if (pair === 2) {
+    return true;
   }
 }
 
