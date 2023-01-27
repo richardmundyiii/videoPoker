@@ -28,13 +28,21 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 ![](images/screen1.png)
 
+## :computer: Technologies Used
+
+![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
+![CSS5](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
+
 ### User Interface
 
 1. When the page loads:
 
    - All 5 cards will be facing down.
    - The 'DEAL' button will be disabled.
-   - 'Help', 'Bet One', 'Max Bet' buttons will be abailable to push.
+   - 'Bet One' and 'Max Bet' buttons will be available to push.
    - All 'HOLD' visuals will be hidden
    - Winning Hands and Payouts will be visible at top of page
    - Players available credit will be shown.
