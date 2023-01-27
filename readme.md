@@ -28,6 +28,10 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 ![](images/screen1.png)
 
+</div>
+
+<div align="center">
+
 ## :computer: Technologies Used
 
 ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
@@ -35,6 +39,10 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
+
+</div>
+
+<div>
 
 ### User Interface
 
@@ -50,6 +58,10 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 2. Play will need to choose either 'Bet One' (up to 5 times) or 'Max Bet' before the game starts.
 3. Once a credit has been chosen the 'DEAL' button will be avaiable to press.
    - If 'Max Bet' (once) or 'Bet One' (5 times) has been pressed, both bet buttons will be disbaled.
+
+</div>
+
+<div>
 
 ### The Game
 
@@ -102,6 +114,10 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 | 2 pairs                 | 1   | 2   | 3    | 4    | 5    |
 | Jacks or Better         | 1   | 2   | 3    | 4    | 5    |
 
+</div>
+
+<div>
+
 ### About the Shuffle
 
 There are a lot of different ways to shuffle, or not shuffle, a deck of cards to generate a random order. The simplest way to "shuffle" a deck would be to not shuffle at all. Meaning just randomly pick a card from the deck and place it in its new array. Pros for this would be very minimal coding and easy to read, even for beginner javascript learners, and in fact does randomly select a card from the deck.
@@ -131,6 +147,8 @@ function deckShuffle() {
 }
 ```
 
-#### Refernces
+</div>
+
+#### References
 
 Wikipedia: [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
