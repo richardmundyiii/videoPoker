@@ -677,11 +677,11 @@ function render() {
 function getWinner() {
   if (isRoyalFlush()) return "royalFlush";
   isStraightFlush();
-  isFourOfAKind();
-  isThreeOfAKind();
+  if (isRegularFourOfAKind()) return "fourOthers";
+  if (isThreeOfAKind()) return "threeOfAKind";
   isFullHouse();
   if (isFlush()) return "flush";
-  isStraight();
+  if (isStraight()) return "straight";
   isTwoPair();
   if (isJacksOrBetter()) return "jacks";
   return "zero";
@@ -691,16 +691,22 @@ function isRoyalFlush() {}
 
 function isStraightFlush() {}
 
-function isFourOfAKind() {
-  const tempHand = [...playerHand];
-  tempHand.reduce((acc, curVal) => {
-    if (curVal.rank in acc) {
-      acc[curVal.rank]++;
-    } else {
-      acc[curVal.rank] = 1;
+function isFourAcesWKicker() {
+  const reduceHand = reduceHandRank();
+  const fourAces = false;
+  for (const item in Object.values(reduceHand)) {
+    if (item >= 4 && item) {
     }
-    return acc;
-  }, {});
+  }
+}
+
+function isRegularFourOfAKind() {
+  const reduceHand = reduceHandRank();
+  let fourOfAKind = false;
+  for (const item in Object.values(reduceHand)) {
+    if (item >= 4) fourOfAKind = true;
+  }
+  return fourOfAKind;
 }
 
 function isThreeOfAKind() {
@@ -724,8 +730,18 @@ function isFlush() {
 }
 
 function isStraight() {
-  //Sort low to high
-  //if inx[0] === index[1]+1
+  tempHand = [...playerHand];
+  let sortHand = tempHand.sort((a, b) =>
+    a.rank > b.rank ? 1 : b.rank > a.rank ? -1 : 0
+  );
+  if (
+    sortHand[0].rank + 1 === sortHand[1].rank &&
+    sortHand[1].rank + 1 === sortHand[2].rank &&
+    sortHand[2] + 1 === sortHand[3] &&
+    sortHand[3] + 1 === sortHand[4]
+  )
+    return straight;
+  // console.log(tempHand.sort(p2, p3) => (p2.rank < p3.rank));
 }
 
 function isTwoPair() {}
