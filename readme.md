@@ -47,6 +47,8 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 ## :fire: Getting Started
 
+### [CLICK TO DEMO](https://richardmundyiii.github.io/videoPoker/)
+
 1. When the page loads:
 
    - All 5 cards will be facing down.
@@ -79,8 +81,11 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
    - The amount won will be displayed at the bottom left of the screen, just above help.
    - The players total credits will increase by the amount won.
 
-## Winning Hand Odds
+## Winning Hand Odds & Payouts
 
+<table>
+<tr><th>Odds</th><th>Payouts</th><tr>
+<tr><td>
 | Hand              | Odds    |
 | ----------------- | ------- |
 | Royal Flush       | 80 : 1  |
@@ -96,7 +101,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 | 2 pairs           | 1 : 1   |
 | Jacks or Better   | 1 : 1   |
 
-## Payouts Per Credit
+</td></td>
 
 | Hand            | 1   | 2   | 3    | 4    | 5    |
 | --------------- | --- | --- | ---- | ---- | ---- |
@@ -112,6 +117,8 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 | 2 pairs         | 1   | 2   | 3    | 4    | 5    |
 | Jacks or Better | 1   | 2   | 3    | 4    | 5    |
 
+</td></tr>
+</table>
 </div>
 
 <div>
