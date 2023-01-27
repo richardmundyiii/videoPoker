@@ -4,6 +4,24 @@
 
 </div>
 
+  <div id="description" align="center">
+
+# Video Poker
+
+### [CLICK TO DEMO](https://richardmundyiii.github.io/videoPoker/)
+
+##### Richard Mundy
+
+[![LinkedIn Badge](https://img.shields.io/badge/-@profpan396-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/richardmundyiii/)
+
+## :pencil: Description
+
+Meet Your Classmates is a hub where students can get to know and relate to their peers via completion of short 3-question
+mini-surveys. By learning about others' backgrounds, previous experiences, and
+interests, an atmosphere of community is created that is conducive to higher
+levels of learning and success.
+
+  </div>
 # Video Poker
 
 ### User Interface
