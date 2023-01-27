@@ -27,6 +27,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 ## :camera_flash: Screenshots
 
 ![](images/screen1.png)
+![](images/screen2.png)
 
 </div>
 
@@ -80,39 +81,36 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 ## Winning Hand Odds
 
-| Hand                    | Odds    |
-| ----------------------- | ------- |
-| Royal Flush             | 80 : 1  |
-| Straight Flush          | 50 : 1  |
-| 4 As w/ 2,3,4           | 400 : 1 |
-| 4 As w/ 5 thru K        | 160 : 1 |
-| 4 2s,3s,4s, w/ 5 thru K | 160 : 1 |
-| 4 5s thru Ks w/ A       | 80 : 1  |
-| 4 5s thru Ks            | 50 : 1  |
-| Full House              | 9 : 1   |
-| Flush                   | 6 : 1   |
-| Straight                | 4 : 1   |
-| 3 of a Kind             | 3 : 1   |
-| 2 pairs                 | 1 : 1   |
-| Jacks or Better         | 1 : 1   |
+| Hand              | Odds    |
+| ----------------- | ------- |
+| Royal Flush       | 80 : 1  |
+| Straight Flush    | 50 : 1  |
+| 4 As              | 400 : 1 |
+| 4 2s,3s,4s        | 160 : 1 |
+| 4 5s thru Ks w/ A | 80 : 1  |
+| 4 5s thru Ks      | 50 : 1  |
+| Full House        | 9 : 1   |
+| Flush             | 6 : 1   |
+| Straight          | 4 : 1   |
+| 3 of a Kind       | 3 : 1   |
+| 2 pairs           | 1 : 1   |
+| Jacks or Better   | 1 : 1   |
 
 ## Payouts Per Credit
 
-| Hand                    | 1   | 2   | 3    | 4    | 5    |
-| ----------------------- | --- | --- | ---- | ---- | ---- |
-| Royal Flush             | 250 | 500 | 750  | 1000 | 4000 |
-| Straight Flush          | 50  | 100 | 150  | 200  | 250  |
-| 4 As w/ 2,3,4           | 400 | 800 | 1200 | 1600 | 2000 |
-| 4 As w/ 5 thru K        | 160 | 320 | 480  | 640  | 800  |
-| 4 2s,3s,4s, w/ 5 thru K | 160 | 320 | 480  | 640  | 800  |
-| 4 5s thru Ks w/ A       | 80  | 160 | 240  | 320  | 400  |
-| 4 5s thru Ks            | 40  | 80  | 120  | 160  | 200  |
-| Full House              | 8   | 16  | 24   | 32   | 40   |
-| Flush                   | 5   | 10  | 15   | 20   | 25   |
-| Straight                | 4   | 8   | 12   | 16   | 20   |
-| 3 of a Kind             | 3   | 6   | 9    | 12   | 15   |
-| 2 pairs                 | 1   | 2   | 3    | 4    | 5    |
-| Jacks or Better         | 1   | 2   | 3    | 4    | 5    |
+| Hand            | 1   | 2   | 3    | 4    | 5    |
+| --------------- | --- | --- | ---- | ---- | ---- |
+| Royal Flush     | 250 | 500 | 750  | 1000 | 4000 |
+| Straight Flush  | 50  | 100 | 150  | 200  | 250  |
+| 4 As w/ 2,3,4   | 400 | 800 | 1200 | 1600 | 2000 |
+| 4 2s,3s,4s      | 160 | 320 | 480  | 640  | 800  |
+| 4 5s thru Ks    | 40  | 80  | 120  | 160  | 200  |
+| Full House      | 8   | 16  | 24   | 32   | 40   |
+| Flush           | 5   | 10  | 15   | 20   | 25   |
+| Straight        | 4   | 8   | 12   | 16   | 20   |
+| 3 of a Kind     | 3   | 6   | 9    | 12   | 15   |
+| 2 pairs         | 1   | 2   | 3    | 4    | 5    |
+| Jacks or Better | 1   | 2   | 3    | 4    | 5    |
 
 </div>
 
