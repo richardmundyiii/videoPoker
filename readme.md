@@ -44,7 +44,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 <div>
 
-## User Interface
+## :fire: Getting Started
 
 1. When the page loads:
 
@@ -55,7 +55,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
    - Winning Hands and Payouts will be visible at top of page
    - Players available credit will be shown.
 
-2. Play will need to choose either 'Bet One' (up to 5 times) or 'Max Bet' before the game starts.
+2. Player will need to choose either 'Bet One' (up to 5 times) or 'Max Bet' before the game starts.
 3. Once a credit has been chosen the 'DEAL' button will be avaiable to press.
    - If 'Max Bet' (once) or 'Bet One' (5 times) has been pressed, both bet buttons will be disbaled.
 
@@ -118,7 +118,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
 <div>
 
-## About the Shuffle
+## :spades: About the Shuffle :spades:
 
 There are a lot of different ways to shuffle, or not shuffle, a deck of cards to generate a random order. The simplest way to "shuffle" a deck would be to not shuffle at all. Meaning just randomly pick a card from the deck and place it in its new array. Pros for this would be very minimal coding and easy to read, even for beginner javascript learners, and in fact does randomly select a card from the deck.
 
@@ -130,7 +130,7 @@ for (let i = 0; i < originalDeck.length; i++) {
 
 The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence. The algorithm effectively puts all the elements into a hat; it continually determines the next element by randomly drawing an element from the hat until no elements remain. The algorithm produces an unbiased permutation: every permutation is equally likely. The modern version of the algorithm is efficient: it takes time proportional to the number of items being shuffled and shuffles them in place.
 
-I start off by copying the original deck and adding it to my shuffle function. We will then iterate over the deck array and create two variables which will hold two temporary card values. As the function iterates over the array it will swap the values of the first and second random indexes. This will create a "shuffled" deck however there is no gurantee that the same index number was not called mutliple times in a row which would esentially equate to a portion of the deck not getting shuffled. So I wrapped that into another for loop to run 1000 times, in turn, reducing the odds of a portion of the deck from noet being shuffled.
+I start off by copying the original deck and adding it to my shuffle function. We will then iterate over the deck array and create two variables which will hold two temporary card values. As the function iterates over the array it will swap the values of the first and second random indexes. This will create a "shuffled" deck however there is no gurantee that the same index number was not called mutliple times in a row which would esentially equate to a portion of the deck not getting shuffled. So I wrapped that into another for loop to run 1000 times, in turn, reducing the odds of a portion of the deck from not being shuffled.
 
 ```javascript
 function deckShuffle() {
@@ -149,6 +149,16 @@ function deckShuffle() {
 
 </div>
 
+<div>
+
+## :bowtie: Next Steps
+
+- Help Button to give in-game assistance
+- Speed button to control how quickly/slowly the cards are delt
+- Sound for the shuffle and dealing of cards
+- Additional types of video poker games
+
+</div>
 #### References
 
 Wikipedia: [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
