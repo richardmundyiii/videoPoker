@@ -1,6 +1,6 @@
 <div id="header" align="center">
 
-  <img src="../images/videoPoker.jpg" width="800" height="400">
+  <img src="images/videoPoker.jpg" width="800" height="400">
 
 </div>
 
