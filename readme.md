@@ -86,6 +86,7 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 <table>
 <tr><th>Odds</th><th>Payouts</th><tr>
 <tr><td>
+
 | Hand              | Odds    |
 | ----------------- | ------- |
 | Royal Flush       | 80 : 1  |
