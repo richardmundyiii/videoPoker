@@ -754,7 +754,6 @@ function isStraight() {
     sortHand[3] + 1 === sortHand[4]
   )
     return straight;
-  // console.log(tempHand.sort(p2, p3) => (p2.rank < p3.rank));
 }
 
 function isTwoPair() {}
