@@ -22,6 +22,21 @@ Just as you would find in the smoke-filled casinos of Atlantic City or Las Vegas
 
   </div>
 
+    ## :camera_flash: Screenshots
+
+|    Description     | Screenshot |
+| :----------------: | ---------- |
+| <h3>Feed Page</h3> | <img       |
+
+    src="images/screen1.png"
+    width="700"
+
+/> |
+| <h3 align="center">Profile Page</h3> | <img
+  src="https://github.com/profpan396/meet-your-classmates/raw/main/public/Screenshots/ProfilePage.png"
+  width="700"
+  /> |
+
 ### User Interface
 
 1. When the page loads:
