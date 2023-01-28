@@ -478,6 +478,9 @@ betMaxBtnEl = document.getElementById("betBtnMax");
 playerCardEls = document.querySelectorAll(".cards-row > img");
 holdCardEls = document.querySelector(".cards-row");
 holdEls = document.querySelector(".hold-row");
+helpElBtn = document.getElementById("helpBtn");
+helpModalEl = document.getElementById("help-modal");
+closeBtnEl = document.getElementById("close");
 
 /*----- event listeners -----*/
 
@@ -491,6 +494,8 @@ dealBtnEl.addEventListener("click", function () {
   }
 });
 holdCardEls.addEventListener("click", handleCardClick);
+helpElBtn.addEventListener("click", handleHelpModal);
+closeBtnEl.addEventListener("click", handleCloseModal);
 
 /*----- functions -----*/
 
@@ -607,6 +612,16 @@ function handleReDeal() {
   gameStage = "finish";
   finalStage();
   render();
+}
+
+// HANDLE HELP MODAL
+
+function handleHelpModal(evt) {
+  helpModalEl.style.display = "block";
+}
+
+function handleCloseModal(evt) {
+  helpModalEl.style.display = "none";
 }
 
 // RENDER FUNCTIONS

@@ -5,6 +5,7 @@
 body {
   height: 100vmin;
   font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -12,6 +13,10 @@ body {
   grid-template-rows: 40vh 60vh;
   padding: 10px;
   margin: 10px;
+}
+
+h2 {
+  text-align: center;
 }
 
 .payouts {
@@ -35,6 +40,8 @@ body {
   background-color: rgb(0, 19, 153);
   grid-row-start: 2;
   grid-template-rows: 1fr 5fr 1fr 3fr;
+  padding: 10px;
+  border: 3px solid black;
 }
 
 .hold-row {
@@ -139,4 +146,40 @@ body {
 #card-4,
 #card-5 {
   visibility: hidden;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
