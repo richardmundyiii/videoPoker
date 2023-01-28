@@ -162,7 +162,7 @@ function deckShuffle() {
 
 ## :bowtie: Next Steps
 
-- Help Button to give in-game assistance
+- :white_check_mark: Help Button to give in-game assistance
 - Speed button to control how quickly/slowly the cards are delt
 - Sound for the shuffle and dealing of cards
 - Additional types of video poker games
