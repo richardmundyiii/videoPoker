@@ -183,3 +183,12 @@ h2 {
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
+
+#winning-hand-message {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: red;
+  -webkit-text-stroke: 0.08vmin gold;
+  font-size: 3vmin;
+}

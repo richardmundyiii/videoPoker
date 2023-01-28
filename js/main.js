@@ -374,6 +374,7 @@ const PAYOUT = {
     3: 750,
     4: 1000,
     5: 4000,
+    name: "ROYAL FLUSH",
   },
   straightFlush: {
     1: 50,
@@ -381,6 +382,7 @@ const PAYOUT = {
     3: 150,
     4: 200,
     5: 250,
+    name: "STRAIGHT FLUSH",
   },
   fourAces: {
     1: 400,
@@ -388,6 +390,7 @@ const PAYOUT = {
     3: 1200,
     4: 1600,
     5: 2000,
+    name: "FOUR OF A KIND - ACES",
   },
   fourLow: {
     1: 160,
@@ -395,6 +398,7 @@ const PAYOUT = {
     3: 480,
     4: 640,
     5: 800,
+    name: "FOUR OF A KIND - 2s, 3, 4s",
   },
   fourOthers: {
     1: 50,
@@ -402,6 +406,7 @@ const PAYOUT = {
     3: 150,
     4: 200,
     5: 250,
+    name: "FOUR OF A KIND - 5 THRU KINGS",
   },
   fullHouse: {
     1: 9,
@@ -409,6 +414,7 @@ const PAYOUT = {
     3: 27,
     4: 36,
     5: 45,
+    name: "FULL HOUSE",
   },
   flush: {
     1: 6,
@@ -416,6 +422,7 @@ const PAYOUT = {
     3: 18,
     4: 24,
     5: 30,
+    name: "FLUSH",
   },
   straight: {
     1: 4,
@@ -423,6 +430,7 @@ const PAYOUT = {
     3: 12,
     4: 16,
     5: 20,
+    name: "STRAIGHT",
   },
   threeOfAKind: {
     1: 3,
@@ -430,6 +438,7 @@ const PAYOUT = {
     3: 9,
     4: 12,
     5: 15,
+    name: "THREE OF A KIND",
   },
   twoPair: {
     1: 1,
@@ -437,6 +446,7 @@ const PAYOUT = {
     3: 3,
     4: 4,
     5: 5,
+    name: "TWO PAIR",
   },
   jacks: {
     1: 1,
@@ -444,6 +454,7 @@ const PAYOUT = {
     3: 3,
     4: 4,
     5: 5,
+    name: "JACKS OR BETTER",
   },
   zero: {
     0: 0,
@@ -452,6 +463,7 @@ const PAYOUT = {
     3: 0,
     4: 0,
     5: 0,
+    name: "none",
   },
 };
 
@@ -481,6 +493,7 @@ holdEls = document.querySelector(".hold-row");
 helpElBtn = document.getElementById("helpBtn");
 helpModalEl = document.getElementById("help-modal");
 closeBtnEl = document.getElementById("close");
+winningHandEl = document.getElementById("winning-hand-message");
 
 /*----- event listeners -----*/
 
@@ -527,6 +540,9 @@ function finalStage() {
   playerWin = getWinner();
   playerCredits += PAYOUT[playerWin][betSize];
   lastHand = PAYOUT[playerWin][betSize];
+  if (getWinner) {
+    renderWinningHandMessage();
+  }
   renderReset();
   newHand();
   render();
@@ -654,6 +670,11 @@ function renderReset() {
 function render() {
   renderMessages();
   renderPlayerHand();
+}
+
+function renderWinningHandMessage() {
+  winningHandEl.style.display = "flex";
+  winningHandEl.innerText = `${PAYOUT[playerWin].name}`;
 }
 
 //GET WINNER FUNCTIONS
