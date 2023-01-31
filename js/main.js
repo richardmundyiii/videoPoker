@@ -469,6 +469,7 @@ const PAYOUT = {
 
 const SOUNDS = {
   betOne: "./sfx/betOne.wav",
+  dealFx: "./sfx/dealFx.wav",
 };
 /*----- state variables -----*/
 
@@ -572,6 +573,7 @@ function deckShuffle() {
 function handleDealClick(evt) {
   if (betSize >= 1 && betSize <= 5 && gameStage === "preFlop") {
     playerCredits = playerCredits - betSize;
+    playSound(SOUNDS.dealFx);
     deckShuffle();
 
     playerHand = deck.splice(0, 5);
@@ -586,7 +588,7 @@ function handleDealClick(evt) {
 function handleBetOneClick() {
   if (betSize < 5 && gameStage === "preFlop") {
     betSize++;
-    playSound();
+    playSound(SOUNDS.betOne);
   }
   render();
 }
@@ -685,8 +687,8 @@ function renderWinningHandMessage() {
 }
 
 //SOUND FUNCTIONS
-function playSound() {
-  player.src = SOUNDS.betOne;
+function playSound(name) {
+  player.src = name;
   player.play();
 }
 
