@@ -612,6 +612,7 @@ function handleCardClick(evt) {
 }
 
 function holdCards() {
+  winningHandEl.style.display = "hidden";
   playerHand.forEach((element, idx) => {
     let holdElement = document.getElementById(`card-${idx + 1}`);
     if (element.isHold === true) {
@@ -682,8 +683,12 @@ function render() {
 }
 
 function renderWinningHandMessage() {
-  winningHandEl.style.display = "flex";
-  winningHandEl.innerText = `${PAYOUT[playerWin].name}`;
+  if (playerWin === "zero") {
+    winningHandEl.style.display = "none";
+  } else {
+    winningHandEl.style.display = "flex";
+    winningHandEl.innerText = `${PAYOUT[playerWin].name}`;
+  }
 }
 
 //SOUND FUNCTIONS
