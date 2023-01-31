@@ -467,6 +467,9 @@ const PAYOUT = {
   },
 };
 
+const SOUNDS = {
+  betOne: "./sfx/betOne.wav",
+};
 /*----- state variables -----*/
 
 let betSize;
@@ -481,6 +484,7 @@ let lastHand;
 
 /*----- cached elements  -----*/
 
+const player = new Audio();
 payoutEl = document.getElementById("pay-message");
 betMessageEl = document.getElementById("bet-message");
 playerCreditEl = document.getElementById("credit-message");
@@ -580,7 +584,10 @@ function handleDealClick(evt) {
 // HANDLE BET SIZE CLICKS
 
 function handleBetOneClick() {
-  if (betSize < 5 && gameStage === "preFlop") betSize++;
+  if (betSize < 5 && gameStage === "preFlop") {
+    betSize++;
+    playSound();
+  }
   render();
 }
 
@@ -675,6 +682,12 @@ function render() {
 function renderWinningHandMessage() {
   winningHandEl.style.display = "flex";
   winningHandEl.innerText = `${PAYOUT[playerWin].name}`;
+}
+
+//SOUND FUNCTIONS
+function playSound() {
+  player.src = SOUNDS.betOne;
+  player.play();
 }
 
 //GET WINNER FUNCTIONS
