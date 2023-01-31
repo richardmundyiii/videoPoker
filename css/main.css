@@ -6,6 +6,7 @@ body {
   height: 100vmin;
   font-family: sans-serif;
   scroll-behavior: smooth;
+  background-color: black;
 }
 
 .container {
