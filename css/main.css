@@ -193,3 +193,9 @@ h2 {
   -webkit-text-stroke: 0.08vmin gold;
   font-size: 3vmin;
 }
+
+#serviceBtn {
+  background-color: rgb(244, 65, 65);
+  color: rgb(249, 222, 222);
+  border: 3px solid rgb(24, 24, 24);
+}

@@ -499,6 +499,8 @@ helpElBtn = document.getElementById("helpBtn");
 helpModalEl = document.getElementById("help-modal");
 closeBtnEl = document.getElementById("close");
 winningHandEl = document.getElementById("winning-hand-message");
+serviceEl = document.getElementById("serviceBtn");
+serviceCloseBtn = document.getElementById("serviceCloseBtn");
 
 /*----- event listeners -----*/
 
@@ -514,6 +516,7 @@ dealBtnEl.addEventListener("click", function () {
 holdCardEls.addEventListener("click", handleCardClick);
 helpElBtn.addEventListener("click", handleHelpModal);
 closeBtnEl.addEventListener("click", handleCloseModal);
+serviceEl.addEventListener("click", handleServiceModal);
 
 /*----- functions -----*/
 
@@ -647,6 +650,14 @@ function handleHelpModal(evt) {
 }
 
 function handleCloseModal(evt) {
+  helpModalEl.style.display = "none";
+}
+
+function handleServiceModal(evt) {
+  helpModalEl.style.display = "block";
+}
+
+function handleServiceCloseModal(evt) {
   helpModalEl.style.display = "none";
 }
 
