@@ -166,6 +166,8 @@ function deckShuffle() {
 - Speed button to control how quickly/slowly the cards are delt
 - Sound for the shuffle and dealing of cards
 - Additional types of video poker games
+- Add service button w/ modal admin popup.
+- - The idea here is to see previous hands to analyize if they player is going for higher risk hands or staying with, easy, winnable hands.
 
 </div>
 
