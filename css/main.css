@@ -36,6 +36,10 @@ h2 {
   background-color: rgb(234, 230, 230);
 }
 
+#card-back:hover {
+  background-color: rgb(183, 181, 181);
+}
+
 .game {
   display: grid;
   background-color: rgb(0, 19, 153);

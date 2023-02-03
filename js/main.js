@@ -482,7 +482,7 @@ let gameStage;
 let playerHand;
 let playerWin;
 let lastHand;
-let handHistory;
+let handHistory = [];
 
 /*----- cached elements  -----*/
 
@@ -533,6 +533,7 @@ function init() {
   playerCredits = 400;
   gameStage = "preFlop";
   playerWin = "zero";
+  localStorage.setItem = handHistory;
   render();
 }
 
@@ -551,6 +552,7 @@ function finalStage() {
   playerWin = getWinner();
   playerCredits += PAYOUT[playerWin][betSize];
   lastHand = PAYOUT[playerWin][betSize];
+  handleHandHistory(playerHand);
   if (getWinner) {
     renderWinningHandMessage();
   }
@@ -572,6 +574,15 @@ function deckShuffle() {
     }
   }
   return deck;
+}
+
+function handleHandHistory(arr) {
+  let result = [];
+  playerHand.forEach(function (arrayItem) {
+    result.push(arrayItem.card);
+  });
+  handHistory.push(result);
+  console.log(handHistory);
 }
 
 //HANDLE FUNCTIONS
@@ -656,6 +667,7 @@ function handleCloseModal(evt) {
   helpModalEl.style.display = "none";
 }
 
+// HANDLE SERVICE MODAL
 function handleServiceModal(evt) {
   serviceEl.style.display = "block";
 }
