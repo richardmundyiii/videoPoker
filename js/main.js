@@ -392,6 +392,14 @@ const PAYOUT = {
     5: 2000,
     name: "FOUR OF A KIND W 2, 3, 4",
   },
+  fourAcesJQK: {
+    1: 320,
+    2: 640,
+    3: 960,
+    4: 1280,
+    5: 1600,
+    name: "FOUR OF A KIND W J, Q, K",
+  },
   fourAces: {
     1: 160,
     2: 320,
@@ -749,6 +757,7 @@ function getWinner() {
   if (isRoyalFlush()) return "royalFlush";
   if (isStraightFlush()) return "straightFlush";
   if (isFourAcesW234()) return "fourAces234";
+  if (isFourAcesWJQK()) return "fourAcesJQK";
   if (isFourAces()) return "fourAces";
   if (isFourLow()) return "fourLow";
   if (isFourOther()) return "fourOthers";
@@ -774,13 +783,31 @@ function isStraightFlush() {
 }
 
 function isFourAcesW234() {
-  const tempHand = [...playerHand];
-  tempHand.sort((a, b) => a.rank - b.rank);
-  return (
-    (isFourAces && tempHand[0].rank === 2) ||
-    tempHand[0].rank === 3 ||
-    tempHand[0].rank === 4
-  );
+  if (isFourAces()) {
+    const tempHand = [...playerHand];
+    tempHand.sort((a, b) => a.rank - b.rank);
+    if (
+      tempHand[0].rank === 2 ||
+      tempHand[0].rank === 3 ||
+      tempHand[0].rank === 4
+    ) {
+      return true;
+    } else false;
+  }
+}
+
+function isFourAcesWJQK() {
+  if (isFourAces()) {
+    const tempHand = [...playerHand];
+    tempHand.sort((a, b) => a.rank - b.rank);
+    if (
+      tempHand[0].rank === 11 ||
+      tempHand[0].rank === 12 ||
+      tempHand[0].rank === 13
+    ) {
+      return true;
+    } else false;
+  }
 }
 
 function isFourAces() {
