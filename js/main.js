@@ -384,12 +384,20 @@ const PAYOUT = {
     5: 250,
     name: "STRAIGHT FLUSH",
   },
-  fourAces: {
+  fourAces234: {
     1: 400,
-    2: 00,
+    2: 800,
     3: 1200,
     4: 1600,
     5: 2000,
+    name: "FOUR OF A KIND W 2, 3, 4",
+  },
+  fourAces: {
+    1: 160,
+    2: 320,
+    3: 480,
+    4: 640,
+    5: 800,
     name: "FOUR OF A KIND - ACES",
   },
   fourLow: {
@@ -728,6 +736,7 @@ function playSound(name) {
 function getWinner() {
   if (isRoyalFlush()) return "royalFlush";
   if (isStraightFlush()) return "straightFlush";
+  if (isFourAcesW234()) return "fourAces234";
   if (isFourAces()) return "fourAces";
   if (isFourLow()) return "fourLow";
   if (isFourOther()) return "fourOthers";
@@ -750,6 +759,16 @@ function isStraightFlush() {
   if (isFlush() && isStraight()) {
     return true;
   }
+}
+
+function isFourAcesW234() {
+  const tempHand = [...playerHand];
+  tempHand.sort((a, b) => a.rank - b.rank);
+  return (
+    (isFourAces && tempHand[0].rank === 2) ||
+    tempHand[0].rank === 3 ||
+    tempHand[0].rank === 4
+  );
 }
 
 function isFourAces() {
@@ -879,4 +898,9 @@ function reduceHandSuit() {
     return acc;
   }, {});
   return reduceHand;
+}
+
+function sortForSmall() {
+  const tempHand = [...playerHand];
+  console.log(tempHand.sort((a, b) => a.rank - b.rank));
 }
