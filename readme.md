@@ -156,6 +156,14 @@ function deckShuffle() {
 }
 ```
 
+Now that the cards have been shuffled, it is time to deal. To ensure no card can be used more than once during a single game, I decided to remove the card from the copied array as it is being delt.
+
+```javascript
+playerHand = deck.splice(0, 5);
+```
+
+It is hard to believe something could go so array (see what I did there) that a card is "magically" in the deck twice, so with this method it would be near impossible to land a 5 of a kind (which has no winning logic anyways and you'd just be paid for the four).
+
 </div>
 
 <div>
@@ -164,7 +172,7 @@ function deckShuffle() {
 
 - :white_check_mark: Help Button to give in-game assistance
 - Speed button to control how quickly/slowly the cards are delt
-- Sound for the shuffle and dealing of cards
+- :white_check_mark: Sound for the shuffle and dealing of cards
 - Additional types of video poker games
 - Add service button w/ modal admin popup.
 - - The idea here is to see previous hands to analyize if they player is going for higher risk hands or staying with, easy, winnable hands.
