@@ -528,7 +528,7 @@ helpElBtn.addEventListener("click", handleHelpModal);
 closeBtnEl.addEventListener("click", handleCloseModal);
 serviceBtnEl.addEventListener("click", handleServiceModal);
 serviceCloseBtn.addEventListener("click", handleCloseServModal);
-
+payoutEls = [...document.querySelectorAll(".grid-item")];
 /*----- functions -----*/
 
 //GAME OPERATIONAL FUNCTIONS
@@ -714,6 +714,7 @@ function renderReset() {
 function render() {
   renderMessages();
   renderPlayerHand();
+  payoutHighlight(payoutEls);
 }
 
 function renderWinningHandMessage() {
@@ -722,6 +723,17 @@ function renderWinningHandMessage() {
   } else {
     winningHandEl.style.display = "flex";
     winningHandEl.innerText = `${PAYOUT[playerWin].name}`;
+  }
+}
+
+//RENDER BET SIZE COLUMN
+function payoutHighlight(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === payoutEls[betSize]) {
+      payoutEls[i].style.border = "3px solid gold";
+    } else {
+      payoutEls[i].style.border = "";
+    }
   }
 }
 
