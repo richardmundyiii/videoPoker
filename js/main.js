@@ -482,6 +482,7 @@ let gameStage;
 let playerHand;
 let playerWin;
 let lastHand;
+let handHistory;
 
 /*----- cached elements  -----*/
 
@@ -499,8 +500,9 @@ helpElBtn = document.getElementById("helpBtn");
 helpModalEl = document.getElementById("help-modal");
 closeBtnEl = document.getElementById("close");
 winningHandEl = document.getElementById("winning-hand-message");
-serviceEl = document.getElementById("serviceBtn");
-serviceCloseBtn = document.getElementById("serviceCloseBtn");
+serviceBtnEl = document.getElementById("serviceBtn");
+serviceEl = document.getElementById("service-modal");
+serviceCloseBtn = document.getElementById("close-service");
 
 /*----- event listeners -----*/
 
@@ -516,7 +518,8 @@ dealBtnEl.addEventListener("click", function () {
 holdCardEls.addEventListener("click", handleCardClick);
 helpElBtn.addEventListener("click", handleHelpModal);
 closeBtnEl.addEventListener("click", handleCloseModal);
-serviceEl.addEventListener("click", handleServiceModal);
+serviceBtnEl.addEventListener("click", handleServiceModal);
+serviceCloseBtn.addEventListener("click", handleCloseServModal);
 
 /*----- functions -----*/
 
@@ -654,11 +657,11 @@ function handleCloseModal(evt) {
 }
 
 function handleServiceModal(evt) {
-  helpModalEl.style.display = "block";
+  serviceEl.style.display = "block";
 }
 
-function handleServiceCloseModal(evt) {
-  helpModalEl.style.display = "none";
+function handleCloseServModal(evt) {
+  serviceEl.style.display = "none";
 }
 
 // RENDER FUNCTIONS
